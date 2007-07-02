@@ -293,7 +293,8 @@ rm -fr %buildroot
 cd $RPM_BUILD_DIR/kdevplatform-%version
 cd build
 
-#make DESTDIR=%buildroot install
+make DESTDIR=%buildroot install
+
 %clean
 rm -fr %buildroot
 
