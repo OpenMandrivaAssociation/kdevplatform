@@ -263,7 +263,7 @@ Development files for kdevplatform.
 #------------------------------------------------
 
 %prep
-%setup -q -nkdevplatform-%version
+%setup -q -n kdevplatform-%version
 
 %build
 
