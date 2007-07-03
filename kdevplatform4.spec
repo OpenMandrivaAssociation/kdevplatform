@@ -258,7 +258,7 @@ Development files for kdevplatform.
 
 %files -n %lib_name-devel
 %defattr(-,root,root)
-%_datadir/apps/cmake/modules/FindKDevPlatform.cmake
+%_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
 
 #------------------------------------------------
 
