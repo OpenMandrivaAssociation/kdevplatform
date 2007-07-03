@@ -62,6 +62,8 @@ Requires(postun): desktop-file-utils
 %_kde_appsdir/kdevprojectmanagerview/kdevprojectmanagerview.rc
 %_kde_appsdir/kdevstandardoutputview/kdevstandardoutputview.rc
 %_kde_appsdir/kdevsubversion/kdevsubversion.rc
+%_kde_appsdir/kdevduchainview/kdevduchainview.rc
+%_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevduchainview.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -259,8 +261,45 @@ Development files for kdevplatform.
 %files -n %lib_name-devel
 %defattr(-,root,root)
 %_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
+%dir  %_kde_includedir/kdevplatform
+%dir %_kde_includedir/kdevplatform/editor
+%_kde_includedir/kdevplatform/editor/*
+%dir %_kde_includedir/kdevplatform/interfaces
+%_kde_includedir/kdevplatform/interfaces/*
+%dir %_kde_includedir/kdevplatform/language/backgroundparser
+%_kde_includedir/kdevplatform/language/backgroundparser/*
+%dir %_kde_includedir/kdevplatform/language/duchain
+%_kde_includedir/kdevplatform/language/duchain/*
+%dir %_kde_includedir/kdevplatform/language/interfaces
+%_kde_includedir/kdevplatform/language/interfaces/*
+%dir %_kde_includedir/kdevplatform/outputview
+%_kde_includedir/kdevplatform/outputview/*
+%dir %_kde_includedir/kdevplatform/project
+%_kde_includedir/kdevplatform/project/*
+%dir %_kde_includedir/kdevplatform/project/interfaces
+%_kde_includedir/kdevplatform/project/interfaces/*
+%dir %_kde_includedir/kdevplatform/shell
+%_kde_includedir/kdevplatform/shell/*
+%dir %_kde_includedir/kdevplatform/sublime
+%_kde_includedir/kdevplatform/sublime/*
+%dir %_kde_includedir/kdevplatform/util
+%_kde_includedir/kdevplatform/util/*
+%dir %_kde_includedir/kdevplatform/vcs
+%_kde_includedir/kdevplatform/vcs/*
+%dir %_kde_includedir/kdevplatform/vcs/interfaces
+%_kde_includedir/kdevplatform/vcs/interfaces/*
 
-#------------------------------------------------
+%{_kde_libdir}/libkdevplatformeditor.so
+%{_kde_libdir}/libkdevplatforminterfaces.so
+%{_kde_libdir}/libkdevplatformlanguage.so
+%{_kde_libdir}/libkdevplatformoutputview.so
+%{_kde_libdir}/libkdevplatformproject.so
+%{_kde_libdir}/libkdevplatformshell.so
+%{_kde_libdir}/libkdevplatformutil.so
+%{_kde_libdir}/libkdevplatformvcs.so
+%{_kde_libdir}/libsublime.so
+
+#-----------------------------------------------------------------------------
 
 %prep
 %setup -q -n kdevplatform-%version
