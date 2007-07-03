@@ -288,6 +288,8 @@ Development files for kdevplatform.
 %_kde_includedir/kdevplatform/vcs/*
 %dir %_kde_includedir/kdevplatform/vcs/interfaces
 %_kde_includedir/kdevplatform/vcs/interfaces/*
+%dir %_kde_includedir/kdevplatform/language
+%_kde_includedir/kdevplatform/language/*
 
 %{_kde_libdir}/libkdevplatformeditor.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
