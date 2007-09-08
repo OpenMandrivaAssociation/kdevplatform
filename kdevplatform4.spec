@@ -1,4 +1,4 @@
-%define revision 682496
+%define revision 709489
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,7 +27,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.91
+Version: 	3.93
 Release: 	%mkrel 0.%revision.1
 Epoch: 3
 URL: http://www.kde.org 
@@ -64,6 +64,7 @@ Requires(postun): desktop-file-utils
 %_kde_appsdir/kdevsubversion/kdevsubversion.rc
 %_kde_appsdir/kdevduchainview/kdevduchainview.rc
 %_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
+%_kde_appsdir/kdevcvs/kdevcvs.rc
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevduchainview.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -74,6 +75,8 @@ Requires(postun): desktop-file-utils
 %_kde_datadir/kde4/services/kdevstandardoutputview.desktop
 %_kde_datadir/kde4/services/kdevsubversion.desktop
 %_kde_datadir/kde4/servicetypes/kdevelopplugin.desktop
+%_kde_datadir/kde4/services/kcm_kdev_envsettings.desktop
+%_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevduchainview.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -83,6 +86,8 @@ Requires(postun): desktop-file-utils
 %_kde_libdir/kde4/kdevsnippet.so
 %_kde_libdir/kde4/kdevstandardoutputview.so
 %_kde_libdir/kde4/kdevsubversion.so
+%_kde_libdir/kde4/kcm_kdev_envsettings.so
+%_kde_libdir/kde4/kdevcvs.so
 
 #-----------------------------------------------------------------------------
 
