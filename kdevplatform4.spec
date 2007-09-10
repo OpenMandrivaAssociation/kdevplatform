@@ -52,7 +52,7 @@ BuildRequires: doxygen
 %py_requires -d
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
-
+Obsoletes:      kdevelop4 < 3.93
 %description
 
 %name module needed by Kdevelop or Quanta
@@ -314,17 +314,7 @@ Development files for kdevplatform.
 %build
 
 cd $RPM_BUILD_DIR/kdevplatform-%version
-%cmake_kde4 \
-%if %use_enable_final
-      -DKDE4_ENABLE_FINAL=ON \
-%endif
-%if %use_enable_pie
-      -DKDE4_ENABLE_FPIE=ON \
-%endif
-%if %unstable
-      -DCMAKE_BUILD_TYPE=debug
-%endif
-
+%cmake_kde4 
 
 %make
 
