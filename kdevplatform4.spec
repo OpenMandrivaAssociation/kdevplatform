@@ -1,4 +1,4 @@
-%define revision 712066
+%define revision 714311
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -20,8 +20,8 @@
 %endif
 
 %define lib_name_orig libkdevplatform4
-%define lib_major 3
-%define lib_name %mklibname kdevplatform4 %lib_major
+%define lib_major 4
+%define lib_name %mklibname kdevplatform %lib_major
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
@@ -258,7 +258,16 @@ Summary: Development files for kdevplatform
 Group: Development/KDE and Qt
 
 Provides: kdevplatform4-devel = %epoch:%version-%release
-Requires: %lib_name = %epoch:%version-%release
+
+Requires: %libkdevplatformeditor = %epoch:%version-%release
+Requires: %libkdevplatforminterfaces = %epoch:%version-%release
+Requires: %libkdevplatformlanguage = %epoch:%version-%release
+Requires: %libkdevplatformoutputview = %epoch:%version-%release
+Requires: %libkdevplatformproject = %epoch:%version-%release
+Requires: %libkdevplatformshell = %epoch:%version-%release
+Requires: %libkdevplatformutil = %epoch:%version-%release
+Requires: %libkdevplatformvcs = %epoch:%version-%release
+Requires: %libsublime = %epoch:%version-%release
 
 %description -n %lib_name-devel
 Development files for kdevplatform.
@@ -266,7 +275,7 @@ Development files for kdevplatform.
 %files -n %lib_name-devel
 %defattr(-,root,root)
 %_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
-%dir  %_kde_includedir/kdevplatform
+%dir %_kde_includedir/kdevplatform
 %dir %_kde_includedir/kdevplatform/editor
 %_kde_includedir/kdevplatform/editor/*
 %dir %_kde_includedir/kdevplatform/interfaces
