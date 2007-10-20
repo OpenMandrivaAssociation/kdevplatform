@@ -1,4 +1,4 @@
-%define revision 714311
+%define revision 727034
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,10 +27,10 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.93.0
+Version: 	3.94.0
 Release: 	%mkrel 0.%revision.1
-Epoch: 3
-URL: http://www.kde.org 
+Epoch:          3
+URL:            http://www.kde.org 
 %if %branch
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%revision.tar.bz2
 %else
@@ -65,6 +65,8 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_appsdir/kdevduchainview/kdevduchainview.rc
 %_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
 %_kde_appsdir/kdevcvs/kdevcvs.rc
+%_kde_appsdir/kdevquickopen/kdevquickopen.rc
+%_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevduchainview.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -88,6 +90,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kcm_kdev_envsettings.so
 %_kde_libdir/kde4/kdevcvs.so
+%_kde_libdir/kde4/kdevquickopen.so
 
 #-----------------------------------------------------------------------------
 
