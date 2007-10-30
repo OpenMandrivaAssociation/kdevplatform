@@ -64,8 +64,10 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_appsdir/kdevsubversion/kdevsubversion.rc
 %_kde_appsdir/kdevduchainview/kdevduchainview.rc
 %_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
+%_kde_appsdir/kdevclassbrowser/kdevclassbrowser.rc
 %_kde_appsdir/kdevcvs/kdevcvs.rc
 %_kde_appsdir/kdevquickopen/kdevquickopen.rc
+%_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevduchainview.desktop
@@ -91,6 +93,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kcm_kdev_envsettings.so
 %_kde_libdir/kde4/kdevcvs.so
 %_kde_libdir/kde4/kdevquickopen.so
+%_kde_libdir/kde4/kdevclassbrowser.so
 
 #-----------------------------------------------------------------------------
 
@@ -294,7 +297,6 @@ Development files for kdevplatform.
 %dir %_kde_includedir/kdevplatform/project
 %_kde_includedir/kdevplatform/project/*
 %dir %_kde_includedir/kdevplatform/project/interfaces
-%_kde_includedir/kdevplatform/project/interfaces/*
 %dir %_kde_includedir/kdevplatform/shell
 %_kde_includedir/kdevplatform/shell/*
 %dir %_kde_includedir/kdevplatform/sublime
@@ -302,11 +304,11 @@ Development files for kdevplatform.
 %dir %_kde_includedir/kdevplatform/util
 %_kde_includedir/kdevplatform/util/*
 %dir %_kde_includedir/kdevplatform/vcs
-%_kde_includedir/kdevplatform/vcs/*
+%_kde_includedir/kdevplatform/vcs/*.h
 %dir %_kde_includedir/kdevplatform/vcs/interfaces
-%_kde_includedir/kdevplatform/vcs/interfaces/*
+%_kde_includedir/kdevplatform/vcs/interfaces/*.h
 %dir %_kde_includedir/kdevplatform/language
-%_kde_includedir/kdevplatform/language/*
+%_kde_includedir/kdevplatform/language/languageexport.h
 
 %{_kde_libdir}/libkdevplatformeditor.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
