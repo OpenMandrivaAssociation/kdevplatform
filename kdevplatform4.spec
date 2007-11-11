@@ -1,4 +1,4 @@
-%define revision 731665
+%define revision 735293
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,7 +27,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.95.1
+Version: 	3.95.2
 Release: 	%mkrel 0.%revision.1
 Epoch:          3
 URL:            http://www.kde.org 
@@ -67,6 +67,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_appsdir/kdevclassbrowser/kdevclassbrowser.rc
 %_kde_appsdir/kdevcvs/kdevcvs.rc
 %_kde_appsdir/kdevquickopen/kdevquickopen.rc
+%_kde_appsdir/kdevproblemreporter/kdevproblemreporter.rc
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
@@ -80,6 +81,10 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kdevsubversion.desktop
 %_kde_datadir/kde4/servicetypes/kdevelopplugin.desktop
 %_kde_datadir/kde4/services/kcm_kdev_envsettings.desktop
+%_kde_datadir/kde4/services/kcm_kdev_bgsettings.desktop
+%_kde_datadir/kde4/services/kcm_kdev_ccsettings.desktop
+%_kde_datadir/kde4/services/kcm_kdev_projectsettings.desktop
+%_kde_datadir/kde4/services/kdevproblemreporter.desktop
 %_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevduchainview.so
@@ -94,6 +99,10 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevcvs.so
 %_kde_libdir/kde4/kdevquickopen.so
 %_kde_libdir/kde4/kdevclassbrowser.so
+%_kde_libdir/kde4/kcm_kdev_bgsettings.so
+%_kde_libdir/kde4/kcm_kdev_ccsettings.so
+%_kde_libdir/kde4/kcm_kdev_projectsettings.so
+%_kde_libdir/kde4/kdevproblemreporter.so
 
 #-----------------------------------------------------------------------------
 
