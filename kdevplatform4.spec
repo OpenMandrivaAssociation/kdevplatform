@@ -1,4 +1,4 @@
-%define revision 735293
+%define revision 737165
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,7 +27,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.95.2
+Version: 	3.96.0
 Release: 	%mkrel 0.%revision.1
 Epoch:          3
 URL:            http://www.kde.org 
