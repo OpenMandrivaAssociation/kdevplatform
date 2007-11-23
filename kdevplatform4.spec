@@ -1,4 +1,4 @@
-%define revision 737165
+%define revision 740306
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,7 +27,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.96.0
+Version: 	3.96.1
 Release: 	%mkrel 0.%revision.1
 Epoch:          3
 URL:            http://www.kde.org 
@@ -61,7 +61,6 @@ Obsoletes:      kdevelop4 < 3.93
 %defattr(-,root,root) 
 %_kde_appsdir/kdevprojectmanagerview/kdevprojectmanagerview.rc
 %_kde_appsdir/kdevstandardoutputview/kdevstandardoutputview.rc
-%_kde_appsdir/kdevsubversion/kdevsubversion.rc
 %_kde_appsdir/kdevduchainview/kdevduchainview.rc
 %_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
 %_kde_appsdir/kdevclassbrowser/kdevclassbrowser.rc
@@ -78,7 +77,6 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kdevprojectmanagerview.desktop
 %_kde_datadir/kde4/services/kdevsnippet.desktop
 %_kde_datadir/kde4/services/kdevstandardoutputview.desktop
-%_kde_datadir/kde4/services/kdevsubversion.desktop
 %_kde_datadir/kde4/servicetypes/kdevelopplugin.desktop
 %_kde_datadir/kde4/services/kcm_kdev_envsettings.desktop
 %_kde_datadir/kde4/services/kcm_kdev_bgsettings.desktop
@@ -94,7 +92,6 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevprojectmanagerview.so
 %_kde_libdir/kde4/kdevsnippet.so
 %_kde_libdir/kde4/kdevstandardoutputview.so
-%_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kcm_kdev_envsettings.so
 %_kde_libdir/kde4/kdevcvs.so
 %_kde_libdir/kde4/kdevquickopen.so
@@ -294,7 +291,7 @@ Development files for kdevplatform.
 %dir %_kde_includedir/kdevplatform/editor
 %_kde_includedir/kdevplatform/editor/*
 %dir %_kde_includedir/kdevplatform/interfaces
-%_kde_includedir/kdevplatform/interfaces/*
+%_kde_includedir/kdevplatform/interfaces/*.h
 %dir %_kde_includedir/kdevplatform/language/backgroundparser
 %_kde_includedir/kdevplatform/language/backgroundparser/*
 %dir %_kde_includedir/kdevplatform/language/duchain
@@ -305,7 +302,6 @@ Development files for kdevplatform.
 %_kde_includedir/kdevplatform/outputview/*
 %dir %_kde_includedir/kdevplatform/project
 %_kde_includedir/kdevplatform/project/*
-%dir %_kde_includedir/kdevplatform/project/interfaces
 %dir %_kde_includedir/kdevplatform/shell
 %_kde_includedir/kdevplatform/shell/*
 %dir %_kde_includedir/kdevplatform/sublime
