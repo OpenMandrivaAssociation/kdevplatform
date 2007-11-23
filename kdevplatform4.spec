@@ -54,7 +54,6 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:      kdevelop4 < 3.93
 %description
-
 %name module needed by Kdevelop or Quanta
 
 %files
