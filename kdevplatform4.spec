@@ -1,4 +1,4 @@
-%define revision 740306
+%define revision 742773
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -83,6 +83,10 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kcm_kdev_projectsettings.desktop
 %_kde_datadir/kde4/services/kdevproblemreporter.desktop
 %_kde_datadir/kde4/services/kdevcvs.desktop
+%_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
+%_kde_datadir/kde4/services/kdevexecute.desktop
+%_kde_libdir/kde4/kcm_kdev_runsettings.so
+%_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevduchainview.so
 %_kde_libdir/kde4/kdevfilemanager.so
