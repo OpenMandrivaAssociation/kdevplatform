@@ -1,4 +1,4 @@
-%define revision 742773
+%define revision 746950
 
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -27,7 +27,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.96.1
+Version: 	3.97.1
 Release: 	%mkrel 0.%revision.1
 Epoch:          3
 URL:            http://www.kde.org 
@@ -85,6 +85,8 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
 %_kde_datadir/kde4/services/kdevexecute.desktop
+%_kde_datadir/kde4/services/kdevusehighlight.desktop
+%_kde_libdir/kde4/kdevusehighlight.so
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
@@ -317,7 +319,10 @@ Development files for kdevplatform.
 %_kde_includedir/kdevplatform/vcs/interfaces/*.h
 %dir %_kde_includedir/kdevplatform/language
 %_kde_includedir/kdevplatform/language/languageexport.h
-
+%dir %_kde_includedir/kdevplatform/vcs/models
+%_kde_includedir/kdevplatform/vcs/models/*.h
+%dir %_kde_includedir/kdevplatform/vcs/widgets
+%_kde_includedir/kdevplatform/vcs/widgets/*.h
 %{_kde_libdir}/libkdevplatformeditor.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
