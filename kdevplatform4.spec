@@ -31,7 +31,7 @@ Version: 	3.97.1
 Epoch:          3
 URL:            http://www.kde.org 
 %if %branch
-Release:        %mkrel 0.%revision.1
+Release:        %mkrel 0.%revision.
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%revision.tar.bz2
 %else
 Release:        %mkrel 1
