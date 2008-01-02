@@ -38,6 +38,7 @@ Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 %endif
 Group: 		Development/C++
+BuildRoot:	%_tmppath/%name-%version-%release-root
 License: GPL
 BuildRequires: kdelibs4-devel 
 BuildRequires: flex
