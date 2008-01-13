@@ -31,7 +31,7 @@ Version: 	3.97.1
 Epoch:          3
 URL:            http://www.kde.org 
 %if %branch
-Release:        %mkrel 0.%revision.2
+Release:        %mkrel 0.%revision.1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%revision.tar.bz2
 %else
 Release:        %mkrel 1
@@ -109,7 +109,8 @@ Obsoletes:      kdevelop4 < 3.93
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformeditor %mklibname kdevplatformeditor 4
+%define libkdevplatformeditor %mklibname kdevplatformeditor %kdevplatformeditor_major
+%define kdevplatformeditor_major 4
 
 %package -n %libkdevplatformeditor
 Summary: KDE 4 library
@@ -123,11 +124,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformeditor
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformeditor.so.*
+%_kde_libdir/libkdevplatformeditor.so.%{kdevplatformeditor_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatforminterfaces %mklibname kdevplatforminterfaces 4
+%define libkdevplatforminterfaces %mklibname kdevplatforminterfaces %kdevplatforminterfaces_major
+%define kdevplatforminterfaces_major 4
 
 %package -n %libkdevplatforminterfaces
 Summary: KDE 4 library
@@ -141,11 +143,12 @@ KDE 4 library.
 
 %files -n %libkdevplatforminterfaces
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatforminterfaces.so.*
+%_kde_libdir/libkdevplatforminterfaces.so.%{kdevplatforminterfaces_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformlanguage %mklibname kdevplatformlanguage 4
+%define libkdevplatformlanguage %mklibname kdevplatformlanguage %kdevplatformlanguage_major
+%define kdevplatformlanguage_major 4
 
 %package -n %libkdevplatformlanguage
 Summary: KDE 4 library
@@ -159,11 +162,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformlanguage
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformlanguage.so.*
+%_kde_libdir/libkdevplatformlanguage.so.%{kdevplatformlanguage_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformoutputview %mklibname kdevplatformoutputview 4
+%define libkdevplatformoutputview %mklibname kdevplatformoutputview %kdevplatformoutputview_major
+%define kdevplatformoutputview_major 4
 
 %package -n %libkdevplatformoutputview
 Summary: KDE 4 library
@@ -177,11 +181,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformoutputview
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformoutputview.so.*
+%_kde_libdir/libkdevplatformoutputview.so.%{kdevplatformoutputview_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformproject %mklibname kdevplatformproject 4
+%define libkdevplatformproject %mklibname kdevplatformproject %kdevplatformproject_major
+%define kdevplatformproject_major 4
 
 %package -n %libkdevplatformproject
 Summary: KDE 4 library
@@ -195,11 +200,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformproject
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformproject.so.*
+%_kde_libdir/libkdevplatformproject.so.%{kdevplatformproject_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformshell %mklibname kdevplatformshell 4
+%define libkdevplatformshell %mklibname kdevplatformshell %kdevplatformshell_major
+%define kdevplatformshell_major 4
 
 %package -n %libkdevplatformshell
 Summary: KDE 4 library
@@ -213,11 +219,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformshell
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformshell.so.*
+%_kde_libdir/libkdevplatformshell.so.%{kdevplatformshell_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformutil %mklibname kdevplatformutil 4
+%define libkdevplatformutil %mklibname kdevplatformutil %kdevplatformutil_major
+%define kdevplatformutil_major 4
 
 %package -n %libkdevplatformutil
 Summary: KDE 4 library
@@ -231,11 +238,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformutil
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformutil.so.*
+%_kde_libdir/libkdevplatformutil.so.%{kdevplatformutil_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformvcs %mklibname kdevplatformvcs 4
+%define libkdevplatformvcs %mklibname kdevplatformvcs %kdevplatformvcs_major
+%define kdevplatformvcs_major 4
 
 %package -n %libkdevplatformvcs
 Summary: KDE 4 library
@@ -249,11 +257,12 @@ KDE 4 library.
 
 %files -n %libkdevplatformvcs
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformvcs.so.*
+%_kde_libdir/libkdevplatformvcs.so.%{kdevplatformvcs_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libsublime %mklibname sublime 4
+%define libsublime %mklibname sublime %sublime_major
+%define sublime_major 4
 
 %package -n %libsublime
 Summary: KDE 4 library
@@ -267,7 +276,7 @@ KDE 4 library.
 
 %files -n %libsublime
 %defattr(-,root,root)
-%_kde_libdir/libsublime.so.*
+%_kde_libdir/libsublime.so.%{sublime_major}*
 
 #-----------------------------------------------------------------------------
 
