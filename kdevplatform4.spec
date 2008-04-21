@@ -1,19 +1,8 @@
-%define revision 752241
-
-%define use_enable_final 1
-%{?_no_enable_final: %{expand: %%global use_enable_final 0}}
-
 %define compile_apidox 0
 %{?_no_apidox: %{expand: %%global compile_apidox 0}}
 
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
-
-%define branch 1
-%{?_branch: %{expand: %%global branch 1}}
-
-%define use_enable_pie 1
-%{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
 
 %if %unstable
 %define dont_strip 1
@@ -27,16 +16,12 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 	3.97.1
+Version: 	4.0.70
 Epoch:          3
 URL:            http://www.kde.org 
-%if %branch
-Release:        %mkrel 0.%revision.1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%revision.tar.bz2
-%else
 Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
-%endif
+Patch0:     kdevplatform-4.0.70-fix-soname.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License: GPL
@@ -82,6 +67,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kcm_kdev_bgsettings.desktop
 %_kde_datadir/kde4/services/kcm_kdev_ccsettings.desktop
 %_kde_datadir/kde4/services/kcm_kdev_projectsettings.desktop
+%_kde_datadir/kde4/services/kdevsubversion.desktop
 %_kde_datadir/kde4/services/kdevproblemreporter.desktop
 %_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
@@ -106,6 +92,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kcm_kdev_ccsettings.so
 %_kde_libdir/kde4/kcm_kdev_projectsettings.so
 %_kde_libdir/kde4/kdevproblemreporter.so
+%_kde_libdir/kde4/kdevsubversion.so
 
 #-----------------------------------------------------------------------------
 
@@ -115,6 +102,7 @@ Obsoletes:      kdevelop4 < 3.93
 %package -n %libkdevplatformeditor
 Summary: KDE 4 library
 Group: System/Libraries
+Obsoletes:   %{_lib}kdevplatformeditor4 < 3:4.0.69-1
 
 %description -n %libkdevplatformeditor
 KDE 4 library.
@@ -302,37 +290,7 @@ Development files for kdevplatform.
 %files -n %lib_name-devel
 %defattr(-,root,root)
 %_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
-%dir %_kde_includedir/kdevplatform
-%dir %_kde_includedir/kdevplatform/editor
-%_kde_includedir/kdevplatform/editor/*
-%dir %_kde_includedir/kdevplatform/interfaces
-%_kde_includedir/kdevplatform/interfaces/*.h
-%dir %_kde_includedir/kdevplatform/language/backgroundparser
-%_kde_includedir/kdevplatform/language/backgroundparser/*
-%dir %_kde_includedir/kdevplatform/language/duchain
-%_kde_includedir/kdevplatform/language/duchain/*
-%dir %_kde_includedir/kdevplatform/language/interfaces
-%_kde_includedir/kdevplatform/language/interfaces/*
-%dir %_kde_includedir/kdevplatform/outputview
-%_kde_includedir/kdevplatform/outputview/*
-%dir %_kde_includedir/kdevplatform/project
-%_kde_includedir/kdevplatform/project/*
-%dir %_kde_includedir/kdevplatform/shell
-%_kde_includedir/kdevplatform/shell/*
-%dir %_kde_includedir/kdevplatform/sublime
-%_kde_includedir/kdevplatform/sublime/*
-%dir %_kde_includedir/kdevplatform/util
-%_kde_includedir/kdevplatform/util/*
-%dir %_kde_includedir/kdevplatform/vcs
-%_kde_includedir/kdevplatform/vcs/*.h
-%dir %_kde_includedir/kdevplatform/vcs/interfaces
-%_kde_includedir/kdevplatform/vcs/interfaces/*.h
-%dir %_kde_includedir/kdevplatform/language
-%_kde_includedir/kdevplatform/language/languageexport.h
-%dir %_kde_includedir/kdevplatform/vcs/models
-%_kde_includedir/kdevplatform/vcs/models/*.h
-%dir %_kde_includedir/kdevplatform/vcs/widgets
-%_kde_includedir/kdevplatform/vcs/widgets/*.h
+%_kde_includedir/kdevplatform
 %{_kde_libdir}/libkdevplatformeditor.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
@@ -347,7 +305,7 @@ Development files for kdevplatform.
 
 %prep
 %setup -q -n kdevplatform-%version
-
+%patch0 -p0
 %build
 
 cd $RPM_BUILD_DIR/kdevplatform-%version
