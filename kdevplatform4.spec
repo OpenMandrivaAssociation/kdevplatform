@@ -36,22 +36,26 @@ BuildRequires: apr-util-devel
 BuildRequires: doxygen
 %endif
 %py_requires -d
-Requires(post): desktop-file-utils
+BuildRequires:    libcommoncpp-devel
+BuildRequires:    rapidsvn
+Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
-Obsoletes:      kdevelop4 < 3.93
+Obsoletes:        kdevelop4 < 3.93
 %description
 %name module needed by Kdevelop or Quanta
 
 %files
 %defattr(-,root,root) 
-%_kde_appsdir/kdevprojectmanagerview/kdevprojectmanagerview.rc
-%_kde_appsdir/kdevstandardoutputview/kdevstandardoutputview.rc
-%_kde_appsdir/kdevduchainview/kdevduchainview.rc
-%_kde_appsdir/kdevfilemanager/kdevfilemanager.rc
-%_kde_appsdir/kdevclassbrowser/kdevclassbrowser.rc
-%_kde_appsdir/kdevcvs/kdevcvs.rc
-%_kde_appsdir/kdevquickopen/kdevquickopen.rc
-%_kde_appsdir/kdevproblemreporter/kdevproblemreporter.rc
+%{_kde_bindir}/kdevteamwork_server
+%_kde_appsdir/kdevprojectmanagerview
+%_kde_appsdir/kdevstandardoutputview
+%_kde_appsdir/kdevduchainview
+%_kde_appsdir/kdevfilemanager
+%_kde_appsdir/kdevclassbrowser
+%_kde_appsdir/kdevcvs
+%_kde_appsdir/kdevquickopen
+%_kde_appsdir/kdevproblemreporter
+%_kde_appsdir/kdevteamwork
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
@@ -73,6 +77,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
 %_kde_datadir/kde4/services/kdevexecute.desktop
 %_kde_datadir/kde4/services/kdevusehighlight.desktop
+%_kde_datadir/kde4/services/kdevteamwork.desktop
 %_kde_libdir/kde4/kdevusehighlight.so
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
@@ -93,6 +98,7 @@ Obsoletes:      kdevelop4 < 3.93
 %_kde_libdir/kde4/kcm_kdev_projectsettings.so
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
+%_kde_libdir/kde4/kdevteamwork.so
 
 #-----------------------------------------------------------------------------
 
@@ -300,6 +306,9 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformutil.so
 %{_kde_libdir}/libkdevplatformvcs.so
 %{_kde_libdir}/libsublime.so
+%{_kde_libdir}/libdiff2.so
+%{_kde_libdir}/libdynamictext.so
+%{_kde_libdir}/libnetwork.so
 
 #-----------------------------------------------------------------------------
 
