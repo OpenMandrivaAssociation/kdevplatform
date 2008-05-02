@@ -16,15 +16,15 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 4.0.71
-Epoch:          3
-URL:            http://www.kde.org 
-Release: %mkrel 1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Version:    4.0.72
+Epoch:      3
+URL:        http://www.kde.org 
+Release:    %mkrel 1
+Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Patch0:     kdevplatform-4.0.70-fix-soname.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
-License: GPL
+License:    GPL
 BuildRequires: kdelibs4-devel 
 BuildRequires: flex
 BuildRequires: graphviz
