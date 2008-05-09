@@ -38,6 +38,7 @@ BuildRequires: doxygen
 %py_requires -d
 BuildRequires:    libcommoncpp-devel
 BuildRequires:    rapidsvn
+BuildRequires:    boost-devel
 Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
