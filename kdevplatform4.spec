@@ -16,7 +16,7 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version:    4.0.72
+Version:    4.0.73
 Epoch:      3
 URL:        http://www.kde.org 
 Release:    %mkrel 1
@@ -78,6 +78,7 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kdevexecute.desktop
 %_kde_datadir/kde4/services/kdevusehighlight.desktop
 %_kde_datadir/kde4/services/kdevteamwork.desktop
+%_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
 %_kde_libdir/kde4/kdevusehighlight.so
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
@@ -99,6 +100,7 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kdevteamwork.so
+%_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 
 #-----------------------------------------------------------------------------
 
