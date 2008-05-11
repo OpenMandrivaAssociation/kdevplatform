@@ -19,7 +19,7 @@ Summary: 	Integrated Development Environment for C++/C
 Version:    4.0.73
 Epoch:      3
 URL:        http://www.kde.org 
-Release:    %mkrel 1
+Release:    %mkrel 2
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Patch0:     kdevplatform-4.0.70-fix-soname.patch
 Group: 		Development/C++
@@ -281,7 +281,8 @@ KDE 4 library.
 Summary: Development files for kdevplatform
 Group: Development/KDE and Qt
 
-Provides: kdevplatform4-devel = %epoch:%version-%release
+Provides:  kdevplatform4-devel = %epoch:%version-%release
+Obsoletes: %{_lib}kdevplatform43-devel < 4.0.73-1
 
 Requires: %libkdevplatformeditor = %epoch:%version-%release
 Requires: %libkdevplatforminterfaces = %epoch:%version-%release
