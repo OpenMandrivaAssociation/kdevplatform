@@ -16,10 +16,10 @@
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version:    4.0.74
+Version: 4.0.80
 Epoch:      3
 URL:        http://www.kde.org 
-Release:    %mkrel 1
+Release: %mkrel 1
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Patch0:     kdevplatform-4.0.70-fix-soname.patch
 Group: 		Development/C++
