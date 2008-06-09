@@ -116,8 +116,12 @@ Obsoletes:   %{_lib}kdevplatformeditor4 < 3:4.0.69-1
 %description -n %libkdevplatformeditor
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformeditor -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformeditor -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformeditor
 %defattr(-,root,root)
@@ -135,8 +139,12 @@ Group: System/Libraries
 %description -n %libkdevplatforminterfaces
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatforminterfaces -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatforminterfaces -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatforminterfaces
 %defattr(-,root,root)
@@ -154,8 +162,12 @@ Group: System/Libraries
 %description -n %libkdevplatformlanguage
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformlanguage -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformlanguage -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformlanguage
 %defattr(-,root,root)
@@ -173,8 +185,12 @@ Group: System/Libraries
 %description -n %libkdevplatformoutputview
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformoutputview -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformoutputview -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformoutputview
 %defattr(-,root,root)
@@ -192,8 +208,12 @@ Group: System/Libraries
 %description -n %libkdevplatformproject
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformproject -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformproject -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformproject
 %defattr(-,root,root)
@@ -211,8 +231,12 @@ Group: System/Libraries
 %description -n %libkdevplatformshell
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformshell -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformshell -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformshell
 %defattr(-,root,root)
@@ -230,8 +254,12 @@ Group: System/Libraries
 %description -n %libkdevplatformutil
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformutil -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformutil -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformutil
 %defattr(-,root,root)
@@ -249,8 +277,12 @@ Group: System/Libraries
 %description -n %libkdevplatformvcs
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libkdevplatformvcs -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdevplatformvcs -p /sbin/ldconfig
+%endif
 
 %files -n %libkdevplatformvcs
 %defattr(-,root,root)
@@ -268,8 +300,12 @@ Group: System/Libraries
 %description -n %libsublime
 KDE 4 library.
 
+%if %mdkversion < 200900
 %post -n %libsublime -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libsublime -p /sbin/ldconfig
+%endif
 
 %files -n %libsublime
 %defattr(-,root,root)
