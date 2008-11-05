@@ -14,13 +14,15 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
+%define svn 877191
+
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version: 4.0.80
-Epoch:      3
+Version:    0.9.82
+Epoch:      4
 URL:        http://www.kde.org 
-Release: %mkrel 2
-Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Release:    %mkrel 0.%svn.1
+Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%svn.tar.bz2
 Patch0:     kdevplatform-4.0.70-fix-soname.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -57,6 +59,11 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_appsdir/kdevquickopen
 %_kde_appsdir/kdevproblemreporter
 %_kde_appsdir/kdevteamwork
+%_kde_appsdir/kdevgit
+%_kde_appsdir/kdevbzr
+%_kde_appsdir/kdevcontextbrowser
+%_kde_appsdir/kdevhg
+%_kde_appsdir/kdevsourceformatter
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
@@ -77,10 +84,16 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
 %_kde_datadir/kde4/services/kdevexecute.desktop
-%_kde_datadir/kde4/services/kdevusehighlight.desktop
 %_kde_datadir/kde4/services/kdevteamwork.desktop
 %_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
-%_kde_libdir/kde4/kdevusehighlight.so
+%_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
+%_kde_datadir/kde4/services/kdevbzr.desktop
+%_kde_datadir/kde4/services/kdevcontextbrowser.desktop
+%_kde_datadir/kde4/services/kdevgit.desktop
+%_kde_datadir/kde4/services/kdevhg.desktop
+%_kde_datadir/kde4/services/kdevkrossplugin.desktop
+%_kde_datadir/kde4/services/kdevsourceformatter.desktop
+%_kde_datadir/kde4/services/kdevvcscommon.desktop
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
@@ -101,31 +114,39 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kdevteamwork.so
+%_kde_libdir/kde4/kdevbzr.so
+%_kde_libdir/kde4/kdevcontextbrowser.so
+%_kde_libdir/kde4/kdevgit.so
+%_kde_libdir/kde4/kdevhg.so
+%_kde_libdir/kde4/kdevkrossplugin.so
+%_kde_libdir/kde4/kdevsourceformatter.so
+%_kde_libdir/kde4/kdevvcscommon.so
+%_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 
 #-----------------------------------------------------------------------------
 
-%define libkdevplatformeditor %mklibname kdevplatformeditor %kdevplatformeditor_major
-%define kdevplatformeditor_major 4
+%define libkdevplatformtestshell %mklibname kdevplatformtestshell %kdevplatformtestshell_major
+%define kdevplatformtestshell_major 4
 
-%package -n %libkdevplatformeditor
+%package -n %libkdevplatformtestshell
 Summary: KDE 4 library
 Group: System/Libraries
-Obsoletes:   %{_lib}kdevplatformeditor4 < 3:4.0.69-1
+Obsoletes:   %{_lib}kdevplatformtestshell4 < 3:4.0.69-1
 
-%description -n %libkdevplatformeditor
+%description -n %libkdevplatformtestshell
 KDE 4 library.
 
 %if %mdkversion < 200900
-%post -n %libkdevplatformeditor -p /sbin/ldconfig
+%post -n %libkdevplatformtestshell -p /sbin/ldconfig
 %endif
 %if %mdkversion < 200900
-%postun -n %libkdevplatformeditor -p /sbin/ldconfig
+%postun -n %libkdevplatformtestshell -p /sbin/ldconfig
 %endif
 
-%files -n %libkdevplatformeditor
+%files -n %libkdevplatformtestshell
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformeditor.so.%{kdevplatformeditor_major}*
+%_kde_libdir/libkdevplatformtestshell.so.%{kdevplatformtestshell_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -320,7 +341,7 @@ Group: Development/KDE and Qt
 Provides:  kdevplatform4-devel = %epoch:%version-%release
 Obsoletes: %{_lib}kdevplatform43-devel < 4.0.73-1
 
-Requires: %libkdevplatformeditor = %epoch:%version-%release
+Requires: %libkdevplatformtestshell = %epoch:%version-%release
 Requires: %libkdevplatforminterfaces = %epoch:%version-%release
 Requires: %libkdevplatformlanguage = %epoch:%version-%release
 Requires: %libkdevplatformoutputview = %epoch:%version-%release
@@ -336,8 +357,11 @@ Development files for kdevplatform.
 %files -n %lib_name-devel
 %defattr(-,root,root)
 %_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
+%{_kde_libdir}/kdevplatform/KDevPlatformConfig.cmake
+%{_kde_libdir}/kdevplatform/KDevPlatformConfigVersion.cmake
 %_kde_includedir/kdevplatform
-%{_kde_libdir}/libkdevplatformeditor.so
+%{_kde_libdir}/libkdevplatformveritas.so
+%{_kde_libdir}/libkdevplatformtestshell.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
 %{_kde_libdir}/libkdevplatformoutputview.so
@@ -353,11 +377,11 @@ Development files for kdevplatform.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevplatform-%version
+%setup -q -n kdevplatform-%svn
 %patch0 -p0
 %build
 
-cd $RPM_BUILD_DIR/kdevplatform-%version
+cd $RPM_BUILD_DIR/kdevplatform-%svn
 %cmake_kde4 
 
 %make
@@ -370,7 +394,7 @@ make apidox
 %install
 rm -fr %buildroot
 
-cd $RPM_BUILD_DIR/kdevplatform-%version
+cd $RPM_BUILD_DIR/kdevplatform-%svn
 cd build
 
 make DESTDIR=%buildroot install
