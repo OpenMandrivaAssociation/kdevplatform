@@ -14,7 +14,7 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
-%define svn 880297
+%define svn 881694
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
@@ -22,8 +22,7 @@ Version:    0.9.82
 Epoch:      4
 URL:        http://www.kde.org 
 Release:    %mkrel 0.%svn.1
-Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%svn.tar.bz2
-Patch0:     kdevplatform-880297-fix-files.patch
+Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svn.tar.bz2
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:    GPL
@@ -374,11 +373,11 @@ Development files for kdevplatform.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevplatform-%svn
-%patch0 -p1
+%setup -q -n kdevplatform
+
 %build
 
-cd $RPM_BUILD_DIR/kdevplatform-%svn
+cd $RPM_BUILD_DIR/kdevplatform
 %cmake_kde4 
 
 %make
@@ -391,7 +390,7 @@ make apidox
 %install
 rm -fr %buildroot
 
-cd $RPM_BUILD_DIR/kdevplatform-%svn
+cd $RPM_BUILD_DIR/kdevplatform
 cd build
 
 make DESTDIR=%buildroot install
