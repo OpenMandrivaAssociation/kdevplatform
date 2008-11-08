@@ -14,7 +14,7 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
-%define svn 877191
+%define svn 880297
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
@@ -23,6 +23,7 @@ Epoch:      4
 URL:        http://www.kde.org 
 Release:    %mkrel 0.%svn.1
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%svn.tar.bz2
+Patch0:     kdevplatform-880297-fix-files.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:    GPL
@@ -53,7 +54,6 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_appsdir/kdevstandardoutputview
 %_kde_appsdir/kdevduchainview
 %_kde_appsdir/kdevfilemanager
-%_kde_appsdir/kdevclassbrowser
 %_kde_appsdir/kdevcvs
 %_kde_appsdir/kdevquickopen
 %_kde_appsdir/kdevproblemreporter
@@ -63,7 +63,6 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_appsdir/kdevcontextbrowser
 %_kde_appsdir/kdevhg
 %_kde_appsdir/kdevsourceformatter
-%_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevduchainview.desktop
@@ -106,7 +105,6 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_libdir/kde4/kcm_kdev_envsettings.so
 %_kde_libdir/kde4/kdevcvs.so
 %_kde_libdir/kde4/kdevquickopen.so
-%_kde_libdir/kde4/kdevclassbrowser.so
 %_kde_libdir/kde4/kcm_kdev_bgsettings.so
 %_kde_libdir/kde4/kcm_kdev_ccsettings.so
 %_kde_libdir/kde4/kcm_kdev_projectsettings.so
@@ -377,7 +375,7 @@ Development files for kdevplatform.
 
 %prep
 %setup -q -n kdevplatform-%svn
-
+%patch0 -p1
 %build
 
 cd $RPM_BUILD_DIR/kdevplatform-%svn
