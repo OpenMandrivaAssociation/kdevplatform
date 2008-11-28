@@ -21,7 +21,7 @@ Summary: 	Integrated Development Environment for C++/C
 Version:    0.9.83
 Epoch:      4
 URL:        http://www.kde.org 
-Release:    %mkrel 0.%svn.1
+Release:    %mkrel 0.%svn.2
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svn.tar.bz2
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -43,6 +43,8 @@ BuildRequires:    boost-devel
 Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
+Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.2
+
 %description
 %name module needed by Kdevelop or Quanta
 
@@ -119,6 +121,7 @@ Obsoletes:        kdevelop4 < 3.93
 %_kde_libdir/kde4/kdevvcscommon.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
+%_kde_libdir/libkdevplatformveritas.so
 
 #-----------------------------------------------------------------------------
 
@@ -356,7 +359,6 @@ Development files for kdevplatform.
 %{_kde_libdir}/kdevplatform/KDevPlatformConfig.cmake
 %{_kde_libdir}/kdevplatform/KDevPlatformConfigVersion.cmake
 %_kde_includedir/kdevplatform
-%{_kde_libdir}/libkdevplatformveritas.so
 %{_kde_libdir}/libkdevplatformtestshell.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
@@ -376,12 +378,8 @@ Development files for kdevplatform.
 %setup -q -n kdevplatform
 
 %build
-
-cd $RPM_BUILD_DIR/kdevplatform
 %cmake_kde4 
-
 %make
-
 
 %if %compile_apidox
 make apidox
@@ -389,14 +387,8 @@ make apidox
 
 %install
 rm -fr %buildroot
-
-cd $RPM_BUILD_DIR/kdevplatform
-cd build
-
-make DESTDIR=%buildroot install
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
-
-
 
