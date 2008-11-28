@@ -21,7 +21,7 @@ Summary: 	Integrated Development Environment for C++/C
 Version:    0.9.83
 Epoch:      4
 URL:        http://www.kde.org 
-Release:    %mkrel 0.%svn.2
+Release:    %mkrel 0.%svn.3
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svn.tar.bz2
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
@@ -43,7 +43,7 @@ BuildRequires:    boost-devel
 Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
-Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.2
+Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 
 %description
 %name module needed by Kdevelop or Quanta
@@ -122,6 +122,9 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.2
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 %_kde_libdir/libkdevplatformveritas.so
+%_kde_libdir/libdiff2.so
+%_kde_libdir/libdynamictext.so
+%_kde_libdir/libnetwork.so
 
 #-----------------------------------------------------------------------------
 
@@ -368,9 +371,6 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformutil.so
 %{_kde_libdir}/libkdevplatformvcs.so
 %{_kde_libdir}/libsublime.so
-%{_kde_libdir}/libdiff2.so
-%{_kde_libdir}/libdynamictext.so
-%{_kde_libdir}/libnetwork.so
 
 #-----------------------------------------------------------------------------
 
