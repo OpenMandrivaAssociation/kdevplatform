@@ -14,11 +14,11 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
-%define svn 881694
+%define svn 886617
 
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version:    0.9.82
+Version:    0.9.83
 Epoch:      4
 URL:        http://www.kde.org 
 Release:    %mkrel 0.%svn.1
