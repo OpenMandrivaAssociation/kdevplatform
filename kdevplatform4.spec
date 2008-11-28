@@ -21,8 +21,9 @@ Summary: 	Integrated Development Environment for C++/C
 Version:    0.9.83
 Epoch:      4
 URL:        http://www.kde.org 
-Release:    %mkrel 0.%svn.3
+Release:    %mkrel 0.%svn.4
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svn.tar.bz2
+Patch0:		kdevplatform-r890025.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:    GPL
@@ -121,7 +122,6 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 %_kde_libdir/kde4/kdevvcscommon.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
-%_kde_libdir/libkdevplatformveritas.so
 %_kde_libdir/libdiff2.so
 %_kde_libdir/libdynamictext.so
 %_kde_libdir/libnetwork.so
@@ -313,6 +313,29 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
+%define kdevplatformveritas_major 1
+%define libkdevplatformveritas %mklibname kdevplatformveritas %kdevplatformveritas_major
+
+%package -n %libkdevplatformveritas
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkdevplatformveritas
+KDE 4 library.
+
+%if %mdkversion < 200900
+%post -n %libkdevplatformveritas -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
+%postun -n %libkdevplatformveritas -p /sbin/ldconfig
+%endif
+
+%files -n %libkdevplatformveritas
+%defattr(-,root,root)
+%_kde_libdir/libkdevplatformveritas.so.%{kdevplatformveritas_major}*
+
+#-----------------------------------------------------------------------------
+
 %define sublime_major 1
 %define libsublime %mklibname sublime %sublime_major
 
@@ -342,6 +365,7 @@ Group: Development/KDE and Qt
 
 Provides:  kdevplatform4-devel = %epoch:%version-%release
 Obsoletes: %{_lib}kdevplatform43-devel < 4.0.73-1
+Conflicts: kdevplatfom4 < 4:0.9.83-0.886617.4
 
 Requires: %libkdevplatformtestshell = %epoch:%version-%release
 Requires: %libkdevplatforminterfaces = %epoch:%version-%release
@@ -351,6 +375,7 @@ Requires: %libkdevplatformproject = %epoch:%version-%release
 Requires: %libkdevplatformshell = %epoch:%version-%release
 Requires: %libkdevplatformutil = %epoch:%version-%release
 Requires: %libkdevplatformvcs = %epoch:%version-%release
+Requires: %libkdevplatformveritas = %epoch:%version-%release
 Requires: %libsublime = %epoch:%version-%release
 
 %description -n %lib_name-devel
@@ -370,12 +395,14 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformshell.so
 %{_kde_libdir}/libkdevplatformutil.so
 %{_kde_libdir}/libkdevplatformvcs.so
+%{_kde_libdir}/libkdevplatformveritas.so
 %{_kde_libdir}/libsublime.so
 
 #-----------------------------------------------------------------------------
 
 %prep
 %setup -q -n kdevplatform
+%patch0 -p3
 
 %build
 %cmake_kde4 
