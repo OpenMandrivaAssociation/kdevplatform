@@ -14,16 +14,13 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
-%define svn 886617
-
 Name: 		kdevplatform4
 Summary: 	Integrated Development Environment for C++/C
-Version:    0.9.83
+Version:    0.9.84
 Epoch:      4
 URL:        http://www.kde.org 
-Release:    %mkrel 0.%svn.4
-Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svn.tar.bz2
-Patch0:		kdevplatform-r890025.patch
+Release:    %mkrel 1
+Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:    GPL
@@ -94,6 +91,7 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 %_kde_datadir/kde4/services/kdevkrossplugin.desktop
 %_kde_datadir/kde4/services/kdevsourceformatter.desktop
 %_kde_datadir/kde4/services/kdevvcscommon.desktop
+%_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
@@ -122,9 +120,12 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 %_kde_libdir/kde4/kdevvcscommon.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
-%_kde_libdir/libdiff2.so
-%_kde_libdir/libdynamictext.so
-%_kde_libdir/libnetwork.so
+%_kde_libdir/kde4/kcm_kdev_pluginsettings.so
+%_kde_libdir/libkdevteamwork_diff2.so
+%_kde_libdir/libkdevteamwork_dynamictext.so
+%_kde_libdir/libkdevteamwork_network.so
+%_kde_iconsdir/hicolor/22x22/actions/run-clean.png
+%_kde_iconsdir/hicolor/22x22/actions/run-install.png
 
 #-----------------------------------------------------------------------------
 
@@ -401,8 +402,7 @@ Development files for kdevplatform.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevplatform
-%patch0 -p3
+%setup -q -n kdevplatform-%version
 
 %build
 %cmake_kde4 
