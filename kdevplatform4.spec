@@ -34,7 +34,6 @@ BuildRequires: apr-util-devel
 %if %compile_apidox
 BuildRequires: doxygen
 %endif
-%py_requires -d
 BuildRequires:    libcommoncpp-devel
 BuildRequires:    rapidsvn
 BuildRequires:    boost-devel
