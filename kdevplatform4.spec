@@ -21,6 +21,7 @@ Epoch:      4
 URL:        http://www.kde.org 
 Release:    %mkrel 2
 Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Patch0:		kdevplatform-0.9.84-force-compile-teamwork.patch
 Group: 		Development/C++
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:    GPL
@@ -402,9 +403,10 @@ Development files for kdevplatform.
 
 %prep
 %setup -q -n kdevplatform-%version
+%patch0 -p0
 
 %build
-%cmake_kde4 
+%cmake_kde4
 %make
 
 %if %compile_apidox
