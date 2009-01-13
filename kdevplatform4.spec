@@ -384,9 +384,8 @@ Development files for kdevplatform.
 %files -n %lib_name-devel
 %defattr(-,root,root)
 %_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
-%{_kde_libdir}/kdevplatform/KDevPlatformConfig.cmake
-%{_kde_libdir}/kdevplatform/KDevPlatformConfigVersion.cmake
-%_kde_includedir/kdevplatform
+%{_kde_libdir}/kdevplatform/*.cmake
+%{_kde_includedir}/kdevplatform
 %{_kde_libdir}/libkdevplatformtestshell.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
