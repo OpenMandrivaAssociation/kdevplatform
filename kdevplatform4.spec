@@ -14,17 +14,16 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
-Name: 		kdevplatform4
-Summary: 	Integrated Development Environment for C++/C
-Version:    0.9.84
-Epoch:      4
-URL:        http://www.kde.org 
-Release:    %mkrel 2
-Source:     ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
-Patch0:		kdevplatform-0.9.84-force-compile-teamwork.patch
-Group: 		Development/C++
-BuildRoot:	%_tmppath/%name-%version-%release-root
-License:    GPL
+Name: kdevplatform4
+Summary: Integrated Development Environment for C++/C
+Version: 0.9.85
+Epoch: 4
+URL: http://www.kde.org 
+Release: %mkrel 1
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Group: Development/C++
+BuildRoot: %_tmppath/%name-%version-%release-root
+License: GPL
 BuildRequires: kdelibs4-devel 
 BuildRequires: flex
 BuildRequires: graphviz
@@ -403,7 +402,6 @@ Development files for kdevplatform.
 
 %prep
 %setup -q -n kdevplatform-%version
-%patch0 -p0
 
 %build
 %cmake_kde4
