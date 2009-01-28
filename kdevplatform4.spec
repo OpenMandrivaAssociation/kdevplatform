@@ -16,7 +16,7 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.9.85
+Version: 0.9.90
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
@@ -47,23 +47,18 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 
 %files
 %defattr(-,root,root) 
-%{_kde_bindir}/kdevteamwork_server
 %_kde_appsdir/kdevprojectmanagerview
 %_kde_appsdir/kdevstandardoutputview
-%_kde_appsdir/kdevduchainview
 %_kde_appsdir/kdevfilemanager
 %_kde_appsdir/kdevcvs
 %_kde_appsdir/kdevquickopen
 %_kde_appsdir/kdevproblemreporter
-%_kde_appsdir/kdevteamwork
 %_kde_appsdir/kdevgit
-%_kde_appsdir/kdevbzr
 %_kde_appsdir/kdevcontextbrowser
-%_kde_appsdir/kdevhg
 %_kde_appsdir/kdevsourceformatter
+%_kde_appsdir/kdevappwizard
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
-%_kde_datadir/kde4/services/kdevduchainview.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
 %_kde_datadir/kde4/services/kdevgenericmanager.desktop
 %_kde_datadir/kde4/services/kdevkonsoleview.desktop
@@ -80,21 +75,18 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 %_kde_datadir/kde4/services/kdevcvs.desktop
 %_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
 %_kde_datadir/kde4/services/kdevexecute.desktop
-%_kde_datadir/kde4/services/kdevteamwork.desktop
 %_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
 %_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
-%_kde_datadir/kde4/services/kdevbzr.desktop
 %_kde_datadir/kde4/services/kdevcontextbrowser.desktop
 %_kde_datadir/kde4/services/kdevgit.desktop
-%_kde_datadir/kde4/services/kdevhg.desktop
 %_kde_datadir/kde4/services/kdevkrossplugin.desktop
 %_kde_datadir/kde4/services/kdevsourceformatter.desktop
 %_kde_datadir/kde4/services/kdevvcscommon.desktop
 %_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
+%_kde_datadir/kde4/services/kdevappwizard.desktop
 %_kde_libdir/kde4/kcm_kdev_runsettings.so
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
-%_kde_libdir/kde4/kdevduchainview.so
 %_kde_libdir/kde4/kdevfilemanager.so
 %_kde_libdir/kde4/kdevgenericmanager.so
 %_kde_libdir/kde4/kdevkonsoleview.so
@@ -109,20 +101,15 @@ Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 %_kde_libdir/kde4/kcm_kdev_projectsettings.so
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
-%_kde_libdir/kde4/kdevteamwork.so
-%_kde_libdir/kde4/kdevbzr.so
 %_kde_libdir/kde4/kdevcontextbrowser.so
 %_kde_libdir/kde4/kdevgit.so
-%_kde_libdir/kde4/kdevhg.so
 %_kde_libdir/kde4/kdevkrossplugin.so
 %_kde_libdir/kde4/kdevsourceformatter.so
 %_kde_libdir/kde4/kdevvcscommon.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 %_kde_libdir/kde4/kcm_kdev_pluginsettings.so
-%_kde_libdir/libkdevteamwork_diff2.so
-%_kde_libdir/libkdevteamwork_dynamictext.so
-%_kde_libdir/libkdevteamwork_network.so
+%_kde_libdir/kde4/kdevappwizard.so
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 
@@ -383,8 +370,8 @@ Development files for kdevplatform.
 
 %files -n %lib_name-devel
 %defattr(-,root,root)
-%_kde_appsdir/cmake/modules/FindKDevPlatform.cmake
-%{_kde_libdir}/kdevplatform/*.cmake
+%{_kde_appsdir}/cmake/modules/FindKDevPlatform.cmake
+%{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
 %{_kde_libdir}/libkdevplatformtestshell.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
