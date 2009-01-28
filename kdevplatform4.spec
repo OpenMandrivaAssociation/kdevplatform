@@ -19,7 +19,7 @@ Summary: Integrated Development Environment for C++/C
 Version: 0.9.90
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -41,6 +41,7 @@ Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
 Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
+Conflicts:	kdevelop4 < 4:3.9.90
 
 %description
 %name module needed by Kdevelop or Quanta
