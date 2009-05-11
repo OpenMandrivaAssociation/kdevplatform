@@ -14,13 +14,15 @@
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
 
+%define svnrevision 966570
+
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.9.91
+Version: 0.9.92
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 2
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Release: %mkrel 0.%svnrevision.1
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.%svnrevision.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
@@ -58,6 +60,10 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_appsdir/kdevcontextbrowser
 %_kde_appsdir/kdevsourceformatter
 %_kde_appsdir/kdevappwizard
+%_kde_appsdir/kdevmercurial
+%_kde_appsdir/kdevclassbrowser
+%_kde_appsdir/kdevdebugger
+%_kde_appsdir/kdevdocumentswitcher
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -74,18 +80,17 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_datadir/kde4/services/kdevsubversion.desktop
 %_kde_datadir/kde4/services/kdevproblemreporter.desktop
 %_kde_datadir/kde4/services/kdevcvs.desktop
-%_kde_datadir/kde4/services/kcm_kdev_runsettings.desktop
 %_kde_datadir/kde4/services/kdevexecute.desktop
 %_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
 %_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
 %_kde_datadir/kde4/services/kdevcontextbrowser.desktop
 %_kde_datadir/kde4/services/kdevgit.desktop
-%_kde_datadir/kde4/services/kdevkrossplugin.desktop
 %_kde_datadir/kde4/services/kdevsourceformatter.desktop
-%_kde_datadir/kde4/services/kdevvcscommon.desktop
 %_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
 %_kde_datadir/kde4/services/kdevappwizard.desktop
-%_kde_libdir/kde4/kcm_kdev_runsettings.so
+%_kde_datadir/kde4/services/kdevclassbrowser.desktop
+%_kde_datadir/kde4/services/kdevdocumentswitcher.desktop
+%_kde_datadir/kde4/services/kdevmercurial.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -104,13 +109,14 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kdevcontextbrowser.so
 %_kde_libdir/kde4/kdevgit.so
-%_kde_libdir/kde4/kdevkrossplugin.so
 %_kde_libdir/kde4/kdevsourceformatter.so
-%_kde_libdir/kde4/kdevvcscommon.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 %_kde_libdir/kde4/kcm_kdev_pluginsettings.so
 %_kde_libdir/kde4/kdevappwizard.so
+%_kde_libdir/kde4/kdevclassbrowser.so
+%_kde_libdir/kde4/kdevdocumentswitcher.so
+%_kde_libdir/kde4/kdevmercurial.so
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 
@@ -277,6 +283,22 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
+%define kdevplatformdebugger_major 1
+%define libkdevplatformdebugger %mklibname kdevplatformdebugger %kdevplatformdebugger_major
+
+%package -n %libkdevplatformdebugger
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkdevplatformdebugger
+KDE 4 library.
+
+%files -n %libkdevplatformdebugger
+%defattr(-,root,root)
+%_kde_libdir/libkdevplatformdebugger.so.%{kdevplatformdebugger_major}*
+
+#-----------------------------------------------------------------------------
+
 %package -n %lib_name-devel
 Summary: Development files for kdevplatform
 Group: Development/KDE and Qt
@@ -295,6 +317,7 @@ Requires: %libkdevplatformutil = %epoch:%version-%release
 Requires: %libkdevplatformvcs = %epoch:%version-%release
 Requires: %libkdevplatformveritas = %epoch:%version-%release
 Requires: %libsublime = %epoch:%version-%release
+Requires: %libkdevplatformdebugger = %epoch:%version-%release
 
 %description -n %lib_name-devel
 Development files for kdevplatform.
@@ -314,6 +337,7 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformvcs.so
 %{_kde_libdir}/libkdevplatformveritas.so
 %{_kde_libdir}/libsublime.so
+%{_kde_libdir}/libkdevplatformdebugger.so
 
 #-----------------------------------------------------------------------------
 
