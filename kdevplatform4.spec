@@ -63,6 +63,7 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_appsdir/kdevdebugger
 %_kde_appsdir/kdevdocumentswitcher
 %_kde_appsdir/kdevcodegen
+%_kde_appsdir/kdevpatchreview
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -90,6 +91,8 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevdocumentswitcher.desktop
 %_kde_datadir/kde4/services/kdevmercurial.desktop
+%_kde_datadir/kde4/services/kdevopenwith.desktop
+%_kde_datadir/kde4/services/kdevpatchreview.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -116,25 +119,26 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_libdir/kde4/kdevclassbrowser.so
 %_kde_libdir/kde4/kdevdocumentswitcher.so
 %_kde_libdir/kde4/kdevmercurial.so
+%_kde_libdir/kde4/kdevopenwith.so
+%_kde_libdir/kde4/kdevpatchreview.so
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformtestshell_major 1
-%define libkdevplatformtestshell %mklibname kdevplatformtestshell %kdevplatformtestshell_major
+%define kdevplatformtests_major 1
+%define libkdevplatformtests %mklibname kdevplatformtests %kdevplatformtests_major
 
-%package -n %libkdevplatformtestshell
+%package -n %libkdevplatformtests
 Summary: KDE 4 library
 Group: System/Libraries
-Obsoletes:   %{_lib}kdevplatformtestshell4 < 3:4.0.69-1
 
-%description -n %libkdevplatformtestshell
+%description -n %libkdevplatformtests
 KDE 4 library.
 
-%files -n %libkdevplatformtestshell
+%files -n %libkdevplatformtests
 %defattr(-,root,root)
-%_kde_libdir/libkdevplatformtestshell.so.%{kdevplatformtestshell_major}*
+%_kde_libdir/libkdevplatformtests.so.%{kdevplatformtests_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -306,7 +310,7 @@ Provides:  kdevplatform4-devel = %epoch:%version-%release
 Obsoletes: %{_lib}kdevplatform43-devel < 4.0.73-1
 Conflicts: kdevplatfom4 < 4:0.9.83-0.886617.4
 
-Requires: %libkdevplatformtestshell = %epoch:%version-%release
+Requires: %libkdevplatformtests = %epoch:%version-%release
 Requires: %libkdevplatforminterfaces = %epoch:%version-%release
 Requires: %libkdevplatformlanguage = %epoch:%version-%release
 Requires: %libkdevplatformoutputview = %epoch:%version-%release
@@ -326,7 +330,7 @@ Development files for kdevplatform.
 %{_kde_appsdir}/cmake/modules/FindKDevPlatform.cmake
 %{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
-%{_kde_libdir}/libkdevplatformtestshell.so
+%{_kde_libdir}/libkdevplatformtests.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
 %{_kde_libdir}/libkdevplatformoutputview.so
