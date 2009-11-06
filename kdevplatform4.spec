@@ -16,7 +16,7 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.9.95
+Version: 0.9.96
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
@@ -54,7 +54,6 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_appsdir/kdevcvs
 %_kde_appsdir/kdevquickopen
 %_kde_appsdir/kdevproblemreporter
-%_kde_appsdir/kdevgit
 %_kde_appsdir/kdevcontextbrowser
 %_kde_appsdir/kdevsourceformatter
 %_kde_appsdir/kdevappwizard
@@ -64,6 +63,8 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_appsdir/kdevdocumentswitcher
 %_kde_appsdir/kdevcodegen
 %_kde_appsdir/kdevpatchreview
+%_kde_appsdir/kdevdocumentview
+%_kde_appsdir/kdevgrepview
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -84,7 +85,6 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
 %_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
 %_kde_datadir/kde4/services/kdevcontextbrowser.desktop
-%_kde_datadir/kde4/services/kdevgit.desktop
 %_kde_datadir/kde4/services/kdevsourceformatter.desktop
 %_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
 %_kde_datadir/kde4/services/kdevappwizard.desktop
@@ -93,6 +93,8 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_datadir/kde4/services/kdevmercurial.desktop
 %_kde_datadir/kde4/services/kdevopenwith.desktop
 %_kde_datadir/kde4/services/kdevpatchreview.desktop
+%_kde_datadir/kde4/services/kdevdocumentview.desktop
+%_kde_datadir/kde4/services/kdevgrepview.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -110,7 +112,6 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kdevcontextbrowser.so
-%_kde_libdir/kde4/kdevgit.so
 %_kde_libdir/kde4/kdevsourceformatter.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
@@ -121,6 +122,8 @@ Conflicts:	kdevelop4 < 4:3.9.90
 %_kde_libdir/kde4/kdevmercurial.so
 %_kde_libdir/kde4/kdevopenwith.so
 %_kde_libdir/kde4/kdevpatchreview.so
+%_kde_libdir/kde4/kdevdocumentview.so
+%_kde_libdir/kde4/kdevgrepview.so
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 
@@ -254,22 +257,6 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformveritas_major 1
-%define libkdevplatformveritas %mklibname kdevplatformveritas %kdevplatformveritas_major
-
-%package -n %libkdevplatformveritas
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %libkdevplatformveritas
-KDE 4 library.
-
-%files -n %libkdevplatformveritas
-%defattr(-,root,root)
-%_kde_libdir/libkdevplatformveritas.so.%{kdevplatformveritas_major}*
-
-#-----------------------------------------------------------------------------
-
 %define sublime_major 1
 %define libsublime %mklibname sublime %sublime_major
 
@@ -318,7 +305,6 @@ Requires: %libkdevplatformproject = %epoch:%version-%release
 Requires: %libkdevplatformshell = %epoch:%version-%release
 Requires: %libkdevplatformutil = %epoch:%version-%release
 Requires: %libkdevplatformvcs = %epoch:%version-%release
-Requires: %libkdevplatformveritas = %epoch:%version-%release
 Requires: %libsublime = %epoch:%version-%release
 Requires: %libkdevplatformdebugger = %epoch:%version-%release
 
@@ -338,7 +324,6 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformshell.so
 %{_kde_libdir}/libkdevplatformutil.so
 %{_kde_libdir}/libkdevplatformvcs.so
-%{_kde_libdir}/libkdevplatformveritas.so
 %{_kde_libdir}/libsublime.so
 %{_kde_libdir}/libkdevplatformdebugger.so
 
