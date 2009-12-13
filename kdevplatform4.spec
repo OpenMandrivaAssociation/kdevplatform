@@ -16,10 +16,10 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.9.96
+Version: 0.9.97
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 3
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -57,7 +57,6 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevcontextbrowser
 %_kde_appsdir/kdevsourceformatter
 %_kde_appsdir/kdevappwizard
-%_kde_appsdir/kdevmercurial
 %_kde_appsdir/kdevclassbrowser
 %_kde_appsdir/kdevdebugger
 %_kde_appsdir/kdevdocumentswitcher
@@ -65,6 +64,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevpatchreview
 %_kde_appsdir/kdevdocumentview
 %_kde_appsdir/kdevgrepview
+%_kde_appsdir/kdevsession
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -90,7 +90,6 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_datadir/kde4/services/kdevappwizard.desktop
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
 %_kde_datadir/kde4/services/kdevdocumentswitcher.desktop
-%_kde_datadir/kde4/services/kdevmercurial.desktop
 %_kde_datadir/kde4/services/kdevopenwith.desktop
 %_kde_datadir/kde4/services/kdevpatchreview.desktop
 %_kde_datadir/kde4/services/kdevdocumentview.desktop
@@ -119,7 +118,6 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevappwizard.so
 %_kde_libdir/kde4/kdevclassbrowser.so
 %_kde_libdir/kde4/kdevdocumentswitcher.so
-%_kde_libdir/kde4/kdevmercurial.so
 %_kde_libdir/kde4/kdevopenwith.so
 %_kde_libdir/kde4/kdevpatchreview.so
 %_kde_libdir/kde4/kdevdocumentview.so
