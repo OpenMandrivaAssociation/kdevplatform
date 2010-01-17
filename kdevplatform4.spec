@@ -19,7 +19,7 @@ Summary: Integrated Development Environment for C++/C
 Version: 0.9.97
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 2
+Release: %mkrel 3
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -311,7 +311,7 @@ Development files for kdevplatform.
 
 %files -n %lib_name-devel
 %defattr(-,root,root)
-%{_kde_appsdir}/cmake/modules/FindKDevPlatform.cmake
+%exclude %{_kde_appsdir}/cmake/modules/FindKDevPlatform.cmake
 %{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
 %{_kde_libdir}/libkdevplatformtests.so
