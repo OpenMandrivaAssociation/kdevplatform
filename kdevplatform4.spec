@@ -16,10 +16,10 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.9.97
+Version: 0.9.98
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 3
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -65,6 +65,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevdocumentview
 %_kde_appsdir/kdevgrepview
 %_kde_appsdir/kdevsession
+%_kde_appsdir/kdevsnippet
 %_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
@@ -85,7 +86,6 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
 %_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
 %_kde_datadir/kde4/services/kdevcontextbrowser.desktop
-%_kde_datadir/kde4/services/kdevsourceformatter.desktop
 %_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
 %_kde_datadir/kde4/services/kdevappwizard.desktop
 %_kde_datadir/kde4/services/kdevclassbrowser.desktop
@@ -111,7 +111,6 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevproblemreporter.so
 %_kde_libdir/kde4/kdevsubversion.so
 %_kde_libdir/kde4/kdevcontextbrowser.so
-%_kde_libdir/kde4/kdevsourceformatter.so
 %_kde_libdir/kde4/kcm_kdevsourceformattersettings.so
 %_kde_libdir/kde4/kcm_kdev_genericprojectmanagersettings.so
 %_kde_libdir/kde4/kcm_kdev_pluginsettings.so
@@ -311,7 +310,6 @@ Development files for kdevplatform.
 
 %files -n %lib_name-devel
 %defattr(-,root,root)
-%exclude %{_kde_appsdir}/cmake/modules/FindKDevPlatform.cmake
 %{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
 %{_kde_libdir}/libkdevplatformtests.so
