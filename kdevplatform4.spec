@@ -16,12 +16,11 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 0.10.1
+Version: 0.10.2
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
-Patch0: kdevplatform-0.10.-fix-cmake.patch
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
@@ -53,7 +52,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevstandardoutputview
 %_kde_appsdir/kdevfilemanager
 %_kde_appsdir/kdevcvs
-#%_kde_appsdir/kdevquickopen
+%_kde_appsdir/kdevquickopen
 %_kde_appsdir/kdevproblemreporter
 %_kde_appsdir/kdevcontextbrowser
 %_kde_appsdir/kdevsourceformatter
@@ -67,7 +66,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevgrepview
 %_kde_appsdir/kdevsession
 %_kde_appsdir/kdevsnippet
-#%_kde_datadir/kde4/services/kdevquickopen.desktop
+%_kde_datadir/kde4/services/kdevquickopen.desktop
 %_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
 %_kde_datadir/kde4/services/kdevfilemanager.desktop
 %_kde_datadir/kde4/services/kdevgenericmanager.desktop
@@ -105,7 +104,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevstandardoutputview.so
 %_kde_libdir/kde4/kcm_kdev_envsettings.so
 %_kde_libdir/kde4/kdevcvs.so
-#%_kde_libdir/kde4/kdevquickopen.so
+%_kde_libdir/kde4/kdevquickopen.so
 %_kde_libdir/kde4/kcm_kdev_bgsettings.so
 %_kde_libdir/kde4/kcm_kdev_ccsettings.so
 %_kde_libdir/kde4/kcm_kdev_projectsettings.so
@@ -328,7 +327,6 @@ Development files for kdevplatform.
 
 %prep
 %setup -q -n kdevplatform-%version
-%patch0 -p1
 
 %build
 %cmake_kde4
