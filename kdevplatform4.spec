@@ -340,7 +340,7 @@ make apidox
 rm -fr %buildroot
 %makeinstall_std -C build
 
-%find_lang %name desktop_extragear-sdk_kdevplatform  kdevappwizard kdevclassbrowser kdevcontextbrowser kdevcvs kdevdocumentswitcher kdevdocumentswitcher kdevdocumentview kdevexecute kdevfilemanager kdevgenericprojectmanager kdevgrepview kdevkonsole kdevpatchreview kdevplatform kdevproblemreporter kdevprojectmanagerview kdevquickopen kdevsnippet kdevstandardoutputview kdevsubversion 
+%find_lang %name --all-name --with-kde
 
 %clean
 rm -fr %buildroot
