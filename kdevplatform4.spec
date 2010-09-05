@@ -13,18 +13,20 @@
 %define lib_name %mklibname kdevplatform %lib_major
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
+%define gitver git20100905
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 1.0.2
+Version: 1.1.60
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Release: %mkrel -c %gitver 1
+#Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
+Source: kdevplatform-%{version}-%{gitver}.tar.gz
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
-BuildRequires: kdelibs4-devel 
+BuildRequires: kdelibs4-devel >= 2:4.5.0
 BuildRequires: flex
 BuildRequires: graphviz
 BuildRequires: db-devel
@@ -66,34 +68,40 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevgrepview
 %_kde_appsdir/kdevsession
 %_kde_appsdir/kdevsnippet
-%_kde_datadir/kde4/services/kdevquickopen.desktop
-%_kde_datadir/kde4/services/kcm_kdev_uisettings.desktop
-%_kde_datadir/kde4/services/kdevfilemanager.desktop
-%_kde_datadir/kde4/services/kdevgenericmanager.desktop
-%_kde_datadir/kde4/services/kdevkonsoleview.desktop
-%_kde_datadir/kde4/services/kdevprojectmanagerview.desktop
-%_kde_datadir/kde4/services/kdevsnippet.desktop
-%_kde_datadir/kde4/services/kdevstandardoutputview.desktop
-%_kde_datadir/kde4/servicetypes/kdevelopplugin.desktop
-%_kde_datadir/kde4/services/kcm_kdev_envsettings.desktop
-%_kde_datadir/kde4/services/kcm_kdev_bgsettings.desktop
-%_kde_datadir/kde4/services/kcm_kdev_ccsettings.desktop
-%_kde_datadir/kde4/services/kcm_kdev_projectsettings.desktop
-%_kde_datadir/kde4/services/kdevsubversion.desktop
-%_kde_datadir/kde4/services/kdevproblemreporter.desktop
-%_kde_datadir/kde4/services/kdevcvs.desktop
-%_kde_datadir/kde4/services/kdevexecute.desktop
-%_kde_datadir/kde4/services/kcm_kdev_genericprojectmanagersettings.desktop
-%_kde_datadir/kde4/services/kcm_kdevsourceformattersettings.desktop
-%_kde_datadir/kde4/services/kdevcontextbrowser.desktop
-%_kde_datadir/kde4/services/kcm_kdev_pluginsettings.desktop
-%_kde_datadir/kde4/services/kdevappwizard.desktop
-%_kde_datadir/kde4/services/kdevclassbrowser.desktop
-%_kde_datadir/kde4/services/kdevdocumentswitcher.desktop
-%_kde_datadir/kde4/services/kdevopenwith.desktop
-%_kde_datadir/kde4/services/kdevpatchreview.desktop
-%_kde_datadir/kde4/services/kdevdocumentview.desktop
-%_kde_datadir/kde4/services/kdevgrepview.desktop
+%_kde_appsdir/kdevcodeutils
+%_kde_appsdir/kdevexternalscript
+%_kde_servicetypes/kdevelopplugin.desktop
+%_kde_services/kdevquickopen.desktop
+%_kde_services/kcm_kdev_uisettings.desktop
+%_kde_services/kdevfilemanager.desktop
+%_kde_services/kdevgenericmanager.desktop
+%_kde_services/kdevkonsoleview.desktop
+%_kde_services/kdevprojectmanagerview.desktop
+%_kde_services/kdevsnippet.desktop
+%_kde_services/kdevstandardoutputview.desktop
+%_kde_services/kcm_kdev_envsettings.desktop
+%_kde_services/kcm_kdev_bgsettings.desktop
+%_kde_services/kcm_kdev_ccsettings.desktop
+%_kde_services/kcm_kdev_projectsettings.desktop
+%_kde_services/kdevsubversion.desktop
+%_kde_services/kdevproblemreporter.desktop
+%_kde_services/kdevcvs.desktop
+%_kde_services/kdevexecute.desktop
+%_kde_services/kcm_kdev_genericprojectmanagersettings.desktop
+%_kde_services/kcm_kdevsourceformattersettings.desktop
+%_kde_services/kdevcontextbrowser.desktop
+%_kde_services/kcm_kdev_pluginsettings.desktop
+%_kde_services/kdevappwizard.desktop
+%_kde_services/kdevclassbrowser.desktop
+%_kde_services/kdevdocumentswitcher.desktop
+%_kde_services/kdevopenwith.desktop
+%_kde_services/kdevpatchreview.desktop
+%_kde_services/kdevdocumentview.desktop
+%_kde_services/kdevgrepview.desktop
+%_kde_services/kdevcodeutils.desktop
+%_kde_services/kdevexternalscript.desktop
+%_kde_services/kdevgit.desktop
+%_kde_services/kdevpastebin.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -121,12 +129,17 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevpatchreview.so
 %_kde_libdir/kde4/kdevdocumentview.so
 %_kde_libdir/kde4/kdevgrepview.so
+%_kde_libdir/kde4/kdevcodeutils.so
+%_kde_libdir/kde4/kdevexternalscript.so
+%_kde_libdir/kde4/kdevgit.so
+%_kde_libdir/kde4/kdevpastebin.so
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
+%_kde_iconsdir/hicolor/*/apps/git.png
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformtests_major 1
+%define kdevplatformtests_major 3
 %define libkdevplatformtests %mklibname kdevplatformtests %kdevplatformtests_major
 
 %package -n %libkdevplatformtests
@@ -142,7 +155,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatforminterfaces_major 1
+%define kdevplatforminterfaces_major 3
 %define libkdevplatforminterfaces %mklibname kdevplatforminterfaces %kdevplatforminterfaces_major
 
 %package -n %libkdevplatforminterfaces
@@ -158,7 +171,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformlanguage_major 1
+%define kdevplatformlanguage_major 3
 %define libkdevplatformlanguage %mklibname kdevplatformlanguage %kdevplatformlanguage_major
 
 %package -n %libkdevplatformlanguage
@@ -174,7 +187,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformoutputview_major 1
+%define kdevplatformoutputview_major 3
 %define libkdevplatformoutputview %mklibname kdevplatformoutputview %kdevplatformoutputview_major
 
 %package -n %libkdevplatformoutputview
@@ -190,7 +203,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformproject_major 1
+%define kdevplatformproject_major 3
 %define libkdevplatformproject %mklibname kdevplatformproject %kdevplatformproject_major
 
 %package -n %libkdevplatformproject
@@ -206,7 +219,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformshell_major 1
+%define kdevplatformshell_major 3
 %define libkdevplatformshell %mklibname kdevplatformshell %kdevplatformshell_major
 
 %package -n %libkdevplatformshell
@@ -222,7 +235,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformutil_major 1
+%define kdevplatformutil_major 3
 %define libkdevplatformutil %mklibname kdevplatformutil %kdevplatformutil_major
 
 %package -n %libkdevplatformutil
@@ -238,7 +251,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformvcs_major 1
+%define kdevplatformvcs_major 3
 %define libkdevplatformvcs %mklibname kdevplatformvcs %kdevplatformvcs_major
 
 %package -n %libkdevplatformvcs
@@ -254,7 +267,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define sublime_major 1
+%define sublime_major 3
 %define libsublime %mklibname sublime %sublime_major
 
 %package -n %libsublime
@@ -270,7 +283,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdebugger_major 1
+%define kdevplatformdebugger_major 3
 %define libkdevplatformdebugger %mklibname kdevplatformdebugger %kdevplatformdebugger_major
 
 %package -n %libkdevplatformdebugger
@@ -283,6 +296,22 @@ KDE 4 library.
 %files -n %libkdevplatformdebugger
 %defattr(-,root,root)
 %_kde_libdir/libkdevplatformdebugger.so.%{kdevplatformdebugger_major}*
+
+#-----------------------------------------------------------------------------
+
+%define kdevplatformdocumentation_major 3
+%define libkdevplatformdocumentation %mklibname kdevplatformdocumentation %kdevplatformdocumentation_major
+
+%package -n %libkdevplatformdocumentation
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkdevplatformdocumentation
+KDE 4 library.
+
+%files -n %libkdevplatformdocumentation
+%defattr(-,root,root)
+%_kde_libdir/libkdevplatformdocumentation.so.%{kdevplatformdocumentation_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -304,6 +333,7 @@ Requires: %libkdevplatformutil = %epoch:%version-%release
 Requires: %libkdevplatformvcs = %epoch:%version-%release
 Requires: %libsublime = %epoch:%version-%release
 Requires: %libkdevplatformdebugger = %epoch:%version-%release
+Requires: %libkdevplatformdocumentation = %epoch:%version-%release
 
 %description -n %lib_name-devel
 Development files for kdevplatform.
@@ -322,11 +352,12 @@ Development files for kdevplatform.
 %{_kde_libdir}/libkdevplatformvcs.so
 %{_kde_libdir}/libsublime.so
 %{_kde_libdir}/libkdevplatformdebugger.so
+%{_kde_libdir}/libkdevplatformdocumentation.so
 
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevplatform-%version
+%setup -q -n kdevelop-devel-kdevplatform
 
 %build
 %cmake_kde4
