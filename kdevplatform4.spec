@@ -39,6 +39,7 @@ BuildRequires: doxygen
 BuildRequires:    libcommoncpp-devel
 BuildRequires:    rapidsvn
 BuildRequires:    boost-devel
+BuildRequires:    qjson-devel >= 0.7.0
 Requires(post):   desktop-file-utils
 Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
@@ -102,6 +103,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_services/kdevexternalscript.desktop
 %_kde_services/kdevgit.desktop
 %_kde_services/kdevpastebin.desktop
+%_kde_services/kdevreviewboard.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -133,6 +135,8 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevexternalscript.so
 %_kde_libdir/kde4/kdevgit.so
 %_kde_libdir/kde4/kdevpastebin.so
+%_kde_libdir/kde4/kdevreviewboard.so
+%_kde_iconsdir/hicolor/*/apps/reviewboard.png
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 %_kde_iconsdir/hicolor/*/apps/git.png
