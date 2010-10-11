@@ -13,7 +13,7 @@
 %define lib_name %mklibname kdevplatform %lib_major
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
-%define gitver git20100905
+%define gitver git20101010
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
@@ -361,7 +361,7 @@ Development files for kdevplatform.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevelop-devel-kdevplatform
+%setup -q -n kdevelop-kdevplatform
 
 %build
 %cmake_kde4
