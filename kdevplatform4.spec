@@ -13,7 +13,7 @@
 %define lib_name %mklibname kdevplatform %lib_major
 %define old_lib_major 2
 %define old_lib_name %mklibname kdevplatform4 %old_lib_major
-%define gitver git20101010
+%define gitver git20101121
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
@@ -22,11 +22,11 @@ Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel -c %gitver 1
 #Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
-Source: kdevplatform-%{version}-%{gitver}.tar.gz
+Source: kdevplatform-%{version}-%{gitver}.tar.xz
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
-BuildRequires: kdelibs4-devel >= 2:4.5.0
+BuildRequires: kdelibs4-devel >= 2:4.5.77
 BuildRequires: flex
 BuildRequires: graphviz
 BuildRequires: db-devel
@@ -361,7 +361,7 @@ Development files for kdevplatform.
 #-----------------------------------------------------------------------------
 
 %prep
-%setup -q -n kdevelop-kdevplatform
+%setup -qn kdevplatform-%{version}
 
 %build
 %cmake_kde4
