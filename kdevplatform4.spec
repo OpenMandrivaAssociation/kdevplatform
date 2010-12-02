@@ -20,7 +20,7 @@ Summary: Integrated Development Environment for C++/C
 Version: 1.1.60
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel -c %gitver 1
+Release: %mkrel -c %gitver 2
 #Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdevplatform-%version.tar.bz2
 Source: kdevplatform-%{version}-%{gitver}.tar.xz
 Group: Development/C++
