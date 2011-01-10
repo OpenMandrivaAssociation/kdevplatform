@@ -16,11 +16,11 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 1.1.81
+Version: 1.1.90
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
-Source: http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/4.1.81/src/kdevplatform-%{version}.tar.bz2
+Source: http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/4.1.90/src/kdevplatform-%{version}.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
