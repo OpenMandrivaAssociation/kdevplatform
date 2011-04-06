@@ -16,11 +16,11 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 1.2.1
+Version: 1.2.2
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
-Source: http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/4.2.0/src/kdevplatform-%{version}.tar.bz2
+Source: http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/4.2.2/src/kdevplatform-%{version}.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
@@ -38,8 +38,6 @@ BuildRequires:    libcommoncpp-devel
 BuildRequires:    rapidsvn
 BuildRequires:    boost-devel
 BuildRequires:    qjson-devel >= 0.7.0
-Requires(post):   desktop-file-utils
-Requires(postun): desktop-file-utils
 Obsoletes:        kdevelop4 < 3.93
 Conflicts:	%lib_name-devel < 4:0.9.83-0.886617.3
 Conflicts:	kdevelop4 < 4:3.9.96
