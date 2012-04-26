@@ -139,7 +139,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformtests_major 3
+%define kdevplatformtests_major 5
 %define libkdevplatformtests %mklibname kdevplatformtests %kdevplatformtests_major
 
 %package -n %libkdevplatformtests
@@ -155,7 +155,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatforminterfaces_major 3
+%define kdevplatforminterfaces_major 5
 %define libkdevplatforminterfaces %mklibname kdevplatforminterfaces %kdevplatforminterfaces_major
 
 %package -n %libkdevplatforminterfaces
@@ -171,7 +171,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformlanguage_major 3
+%define kdevplatformlanguage_major 5
 %define libkdevplatformlanguage %mklibname kdevplatformlanguage %kdevplatformlanguage_major
 
 %package -n %libkdevplatformlanguage
@@ -187,7 +187,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformoutputview_major 3
+%define kdevplatformoutputview_major 5
 %define libkdevplatformoutputview %mklibname kdevplatformoutputview %kdevplatformoutputview_major
 
 %package -n %libkdevplatformoutputview
@@ -203,7 +203,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformproject_major 3
+%define kdevplatformproject_major 5
 %define libkdevplatformproject %mklibname kdevplatformproject %kdevplatformproject_major
 
 %package -n %libkdevplatformproject
@@ -219,7 +219,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformshell_major 3
+%define kdevplatformshell_major 5
 %define libkdevplatformshell %mklibname kdevplatformshell %kdevplatformshell_major
 
 %package -n %libkdevplatformshell
@@ -235,7 +235,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformutil_major 3
+%define kdevplatformutil_major 5
 %define libkdevplatformutil %mklibname kdevplatformutil %kdevplatformutil_major
 
 %package -n %libkdevplatformutil
@@ -251,7 +251,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformvcs_major 3
+%define kdevplatformvcs_major 5
 %define libkdevplatformvcs %mklibname kdevplatformvcs %kdevplatformvcs_major
 
 %package -n %libkdevplatformvcs
@@ -267,7 +267,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define sublime_major 3
+%define sublime_major 5
 %define libsublime %mklibname sublime %sublime_major
 
 %package -n %libsublime
@@ -283,7 +283,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdebugger_major 3
+%define kdevplatformdebugger_major 5
 %define libkdevplatformdebugger %mklibname kdevplatformdebugger %kdevplatformdebugger_major
 
 %package -n %libkdevplatformdebugger
@@ -299,7 +299,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdocumentation_major 3
+%define kdevplatformdocumentation_major 5
 %define libkdevplatformdocumentation %mklibname kdevplatformdocumentation %kdevplatformdocumentation_major
 
 %package -n %libkdevplatformdocumentation
