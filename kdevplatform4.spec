@@ -16,7 +16,7 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 1.2.3
+Version: 1.3.1
 Epoch: 4
 URL: http://www.kde.org 
 Release: %mkrel 1
