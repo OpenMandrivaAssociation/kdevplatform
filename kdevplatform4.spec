@@ -67,6 +67,9 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_appsdir/kdevsnippet
 %_kde_appsdir/kdevcodeutils
 %_kde_appsdir/kdevexternalscript
+%_kde_bindir/kdev_dbus_socket_transformer
+%_kde_bindir/kdev_format_source.sh
+%_kde_bindir/kdevplatform_shell_environment.sh
 %_kde_servicetypes/kdevelopplugin.desktop
 %_kde_services/kdevquickopen.desktop
 %_kde_services/kcm_kdev_uisettings.desktop
@@ -100,6 +103,10 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_services/kdevgit.desktop
 %_kde_services/kdevpastebin.desktop
 %_kde_services/kdevreviewboard.desktop
+%_kde_services/kdev-dash-projectfileelement.desktop
+%_kde_services/kdevexecutescript.desktop
+%_kde_services/kdevprojectdashboard.desktop
+%_kde_services/kdevvcschangesview.desktop
 %_kde_libdir/kde4/kdevexecute.so
 %_kde_libdir/kde4/kcm_kdev_uisettings.so
 %_kde_libdir/kde4/kdevfilemanager.so
@@ -132,10 +139,15 @@ Conflicts:	kdevelop4 < 4:3.9.96
 %_kde_libdir/kde4/kdevgit.so
 %_kde_libdir/kde4/kdevpastebin.so
 %_kde_libdir/kde4/kdevreviewboard.so
+%_kde_libdir/kde4/kdevexecutescript.so
+%_kde_libdir/kde4/kdevprojectdashboard.so
+%_kde_libdir/kde4/kdevvcschangesviewplugin.so
+%_kde_libdir/kde4/plasma_kdev_projectfileelement.so
 %_kde_iconsdir/hicolor/*/apps/reviewboard.png
 %_kde_iconsdir/hicolor/22x22/actions/run-clean.png
 %_kde_iconsdir/hicolor/22x22/actions/run-install.png
 %_kde_iconsdir/hicolor/*/apps/git.png
+%_kde_iconsdir/hicolor/*/apps/subversion.png
 
 #-----------------------------------------------------------------------------
 
