@@ -16,11 +16,11 @@
 
 Name: kdevplatform4
 Summary: Integrated Development Environment for C++/C
-Version: 1.3.1
+Version: 1.4.0
 Epoch: 4
 URL: http://www.kde.org 
-Release: %mkrel 1
-Source: http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/4.2.3/src/kdevplatform-%{version}.tar.bz2
+Release: 1
+Source: http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/4.4.0/src/kdevplatform-%{version}.tar.bz2
 Group: Development/C++
 BuildRoot: %_tmppath/%name-%version-%release-root
 License: GPL
@@ -34,8 +34,6 @@ BuildRequires: apr-util-devel
 %if %compile_apidox
 BuildRequires: doxygen
 %endif
-BuildRequires:    libcommoncpp-devel
-BuildRequires:    rapidsvn
 BuildRequires:    boost-devel
 BuildRequires:    qjson-devel >= 0.7.0
 Obsoletes:        kdevelop4 < 3.93
@@ -151,7 +149,7 @@ Conflicts:	kdevelop4 < 4:3.9.96
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformtests_major 5
+%define kdevplatformtests_major 6
 %define libkdevplatformtests %mklibname kdevplatformtests %kdevplatformtests_major
 
 %package -n %libkdevplatformtests
@@ -167,7 +165,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatforminterfaces_major 5
+%define kdevplatforminterfaces_major 6
 %define libkdevplatforminterfaces %mklibname kdevplatforminterfaces %kdevplatforminterfaces_major
 
 %package -n %libkdevplatforminterfaces
@@ -183,7 +181,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformlanguage_major 5
+%define kdevplatformlanguage_major 6
 %define libkdevplatformlanguage %mklibname kdevplatformlanguage %kdevplatformlanguage_major
 
 %package -n %libkdevplatformlanguage
@@ -199,7 +197,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformoutputview_major 5
+%define kdevplatformoutputview_major 6
 %define libkdevplatformoutputview %mklibname kdevplatformoutputview %kdevplatformoutputview_major
 
 %package -n %libkdevplatformoutputview
@@ -215,7 +213,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformproject_major 5
+%define kdevplatformproject_major 6
 %define libkdevplatformproject %mklibname kdevplatformproject %kdevplatformproject_major
 
 %package -n %libkdevplatformproject
@@ -231,7 +229,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformshell_major 5
+%define kdevplatformshell_major 6
 %define libkdevplatformshell %mklibname kdevplatformshell %kdevplatformshell_major
 
 %package -n %libkdevplatformshell
@@ -247,7 +245,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformutil_major 5
+%define kdevplatformutil_major 6
 %define libkdevplatformutil %mklibname kdevplatformutil %kdevplatformutil_major
 
 %package -n %libkdevplatformutil
@@ -263,7 +261,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformvcs_major 5
+%define kdevplatformvcs_major 6
 %define libkdevplatformvcs %mklibname kdevplatformvcs %kdevplatformvcs_major
 
 %package -n %libkdevplatformvcs
@@ -279,7 +277,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define sublime_major 5
+%define sublime_major 6
 %define libsublime %mklibname sublime %sublime_major
 
 %package -n %libsublime
@@ -295,7 +293,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdebugger_major 5
+%define kdevplatformdebugger_major 6
 %define libkdevplatformdebugger %mklibname kdevplatformdebugger %kdevplatformdebugger_major
 
 %package -n %libkdevplatformdebugger
@@ -311,7 +309,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdocumentation_major 5
+%define kdevplatformdocumentation_major 6
 %define libkdevplatformdocumentation %mklibname kdevplatformdocumentation %kdevplatformdocumentation_major
 
 %package -n %libkdevplatformdocumentation
