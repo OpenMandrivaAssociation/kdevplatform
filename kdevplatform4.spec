@@ -9,37 +9,37 @@
 #define dont_strip 1
 %endif
 
-%define lib_name_orig libkdevplatform4
-%define lib_major 4
-%define lib_name %mklibname kdevplatform %{lib_major}
-%define old_lib_major 2
-%define old_lib_name %mklibname kdevplatform4 %{old_lib_major}
-
 %define kdevelop_ver 4.%(echo %{version} | cut -d. -f2,3)
 
-Name:		kdevplatform4
+%define libname_orig libkdevplatform4
+%define major	4
+%define libname %mklibname kdevplatform %{major}
+%define old_major 2
+%define old_libname %mklibname kdevplatform4 %{old_major}
+
 Summary:	Integrated Development Environment for C++/C
+Name:		kdevplatform4
+Epoch:		4
 Version:	1.4.1
 Release:	1
-Epoch:		4
 Group:		Development/C++
-License:	GPL
-URL:		http://www.kde.org
+License:	GPLv2
+Url:		http://www.kde.org
 Source0:	http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.bz2
-BuildRequires:	kdelibs4-devel
 BuildRequires:	flex
 BuildRequires:	graphviz
+BuildRequires:	rapidsvn
+BuildRequires:	boost-devel
 BuildRequires:	db-devel
+BuildRequires:	kdelibs4-devel
 BuildRequires:	subversion-devel
 BuildRequires:	pkgconfig(apr-1)
 BuildRequires:	pkgconfig(apr-util-1)
+BuildRequires:	pkgconfig(libccext2)
+BuildRequires:	pkgconfig(QJson)
 %if %{compile_apidox}
 BuildRequires:	doxygen
 %endif
-BuildRequires:	libcommoncpp-devel
-BuildRequires:	rapidsvn
-BuildRequires:	boost-devel
-BuildRequires:	qjson-devel >= 0.7.0
 
 %description
 %{name} module needed by Kdevelop or Quanta
@@ -314,7 +314,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%package -n %{lib_name}-devel
+%package -n %{libname}-devel
 Summary:	Development files for kdevplatform
 Group:		Development/KDE and Qt
 
@@ -332,10 +332,10 @@ Requires:	%{libsublime} = %{EVRD}
 Requires:	%{libkdevplatformdebugger} = %{EVRD}
 Requires:	%{libkdevplatformdocumentation} = %{EVRD}
 
-%description -n %{lib_name}-devel
+%description -n %{libname}-devel
 Development files for kdevplatform.
 
-%files -n %{lib_name}-devel
+%files -n %{libname}-devel
 %{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
 %{_kde_libdir}/libkdevplatformtests.so
