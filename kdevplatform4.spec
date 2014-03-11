@@ -28,6 +28,7 @@ Url:		http://www.kde.org
 Source0:	http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
 BuildRequires:	flex
 BuildRequires:	graphviz
+BuildRequires:	grantlee-devel
 BuildRequires:	rapidsvn
 BuildRequires:	boost-devel
 BuildRequires:	db-devel
