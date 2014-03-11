@@ -20,12 +20,12 @@
 Summary:	Integrated Development Environment for C++/C
 Name:		kdevplatform4
 Epoch:		4
-Version:	1.4.1
-Release:	5
+Version:	1.6.0
+Release:	1
 Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
-Source0:	http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.bz2
+Source0:	http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
 BuildRequires:	flex
 BuildRequires:	graphviz
 BuildRequires:	rapidsvn
