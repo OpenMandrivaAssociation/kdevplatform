@@ -104,6 +104,7 @@ BuildRequires:	doxygen
 %{_kde_services}/kdevexternalscript.desktop
 %{_kde_services}/kdevgit.desktop
 %{_kde_services}/kdevpastebin.desktop
+%{_kde_services}/kdevreviewboard.desktop
 %{_kde_services}/kdevexecutescript.desktop
 %{_kde_services}/kdevvcschangesview.desktop
 %{_kde_services}/kdevfiletemplates.desktop
