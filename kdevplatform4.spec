@@ -25,7 +25,7 @@ Release:	1
 Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
-Source0:	http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
+Source0:	http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
 BuildRequires:	flex
 BuildRequires:	graphviz
 BuildRequires:	rapidsvn
