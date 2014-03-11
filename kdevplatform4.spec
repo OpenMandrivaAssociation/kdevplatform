@@ -358,7 +358,7 @@ Requires:	%{libkdevplatformvcs} = %{EVRD}
 Requires:	%{libsublime} = %{EVRD}
 Requires:	%{libkdevplatformdebugger} = %{EVRD}
 Requires:	%{libkdevplatformdocumentation} = %{EVRD}
-Requires:	%{libkdevplatformjsontests{ = %{EVRD}
+Requires:	%{libkdevplatformjsontests} = %{EVRD}
 
 %description -n %{libname}-devel
 Development files for kdevplatform.
