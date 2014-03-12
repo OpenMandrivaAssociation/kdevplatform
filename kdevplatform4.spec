@@ -20,14 +20,15 @@
 Summary:	Integrated Development Environment for C++/C
 Name:		kdevplatform4
 Epoch:		4
-Version:	1.4.1
-Release:	2
+Version:	1.6.0
+Release:	1
 Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
-Source0:	http://fr2.rpmfind.net/linux/KDE/unstable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.bz2
+Source0:	http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
 BuildRequires:	flex
 BuildRequires:	graphviz
+BuildRequires:	grantlee-devel
 BuildRequires:	rapidsvn
 BuildRequires:	boost-devel
 BuildRequires:	db-devel
@@ -46,7 +47,7 @@ BuildRequires:	doxygen
 
 %files -f %{name}.lang
 %{_kde_bindir}/kdev_dbus_socket_transformer
-%{_kde_bindir}/kdev_format_source.sh
+%{_kde_bindir}/kdev_format_source
 %{_kde_bindir}/kdevplatform_shell_environment.sh
 %{_kde_appsdir}/kdevprojectmanagerview
 %{_kde_appsdir}/kdevstandardoutputview
@@ -68,6 +69,10 @@ BuildRequires:	doxygen
 %{_kde_appsdir}/kdevsnippet
 %{_kde_appsdir}/kdevcodeutils
 %{_kde_appsdir}/kdevexternalscript
+%{_kde_appsdir}/kdevfiletemplates
+%{_kde_appsdir}/kdevtestview
+%{_kde_configdir}/kdevappwizard.knsrc
+%{_kde_configdir}/kdevfiletemplates.knsrc
 %{_kde_servicetypes}/kdevelopplugin.desktop
 %{_kde_services}/kdevquickopen.desktop
 %{_kde_services}/kcm_kdev_uisettings.desktop
@@ -85,7 +90,6 @@ BuildRequires:	doxygen
 %{_kde_services}/kdevproblemreporter.desktop
 %{_kde_services}/kdevcvs.desktop
 %{_kde_services}/kdevexecute.desktop
-%{_kde_services}/kcm_kdev_genericprojectmanagersettings.desktop
 %{_kde_services}/kcm_kdevsourceformattersettings.desktop
 %{_kde_services}/kdevcontextbrowser.desktop
 %{_kde_services}/kcm_kdev_pluginsettings.desktop
@@ -101,10 +105,14 @@ BuildRequires:	doxygen
 %{_kde_services}/kdevgit.desktop
 %{_kde_services}/kdevpastebin.desktop
 %{_kde_services}/kdevreviewboard.desktop
-%{_kde_services}/kdev-dash-projectfileelement.desktop
 %{_kde_services}/kdevexecutescript.desktop
-%{_kde_services}/kdevprojectdashboard.desktop
 %{_kde_services}/kdevvcschangesview.desktop
+%{_kde_services}/kdevfiletemplates.desktop
+%{_kde_services}/kdevswitchtobuddy.desktop
+%{_kde_services}/kdevtemplatemanager_config.desktop
+%{_kde_services}/kdevtestview.desktop
+%{_kde_services}/kcm_kdevprojectfilter.desktop
+%{_kde_services}/kdevprojectfilter.desktop
 %{_kde_libdir}/kde4/kdevexecute.so
 %{_kde_libdir}/kde4/kcm_kdev_uisettings.so
 %{_kde_libdir}/kde4/kdevfilemanager.so
@@ -123,7 +131,6 @@ BuildRequires:	doxygen
 %{_kde_libdir}/kde4/kdevsubversion.so
 %{_kde_libdir}/kde4/kdevcontextbrowser.so
 %{_kde_libdir}/kde4/kcm_kdevsourceformattersettings.so
-%{_kde_libdir}/kde4/kcm_kdev_genericprojectmanagersettings.so
 %{_kde_libdir}/kde4/kcm_kdev_pluginsettings.so
 %{_kde_libdir}/kde4/kdevappwizard.so
 %{_kde_libdir}/kde4/kdevclassbrowser.so
@@ -138,9 +145,14 @@ BuildRequires:	doxygen
 %{_kde_libdir}/kde4/kdevpastebin.so
 %{_kde_libdir}/kde4/kdevreviewboard.so
 %{_kde_libdir}/kde4/kdevexecutescript.so
-%{_kde_libdir}/kde4/kdevprojectdashboard.so
 %{_kde_libdir}/kde4/kdevvcschangesviewplugin.so
-%{_kde_libdir}/kde4/plasma_kdev_projectfileelement.so
+%{_kde_libdir}/kde4/kdevfiletemplates.so
+%{_kde_libdir}/kde4/kdevswitchtobuddy.so
+%{_kde_libdir}/kde4/kdevtemplatemanager_config.so
+%{_kde_libdir}/kde4/kdevtestview.so
+%{_kde_libdir}/kde4/kcm_kdevprojectfilter.so
+%{_kde_libdir}/kde4/kdevprojectfilter.so
+%{_kde_libdir}/kde4/plugins/grantlee/0.3/kdev_filters.so
 %{_kde_iconsdir}/hicolor/*/apps/reviewboard.png
 %{_kde_iconsdir}/hicolor/22x22/actions/run-clean.png
 %{_kde_iconsdir}/hicolor/22x22/actions/run-install.png
@@ -149,7 +161,7 @@ BuildRequires:	doxygen
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformtests_major 6
+%define kdevplatformtests_major 7
 %define libkdevplatformtests %mklibname kdevplatformtests %{kdevplatformtests_major}
 
 %package -n %{libkdevplatformtests}
@@ -164,7 +176,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatforminterfaces_major 6
+%define kdevplatforminterfaces_major 7
 %define libkdevplatforminterfaces %mklibname kdevplatforminterfaces %{kdevplatforminterfaces_major}
 
 %package -n %{libkdevplatforminterfaces}
@@ -179,7 +191,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformlanguage_major 6
+%define kdevplatformlanguage_major 7
 %define libkdevplatformlanguage %mklibname kdevplatformlanguage %{kdevplatformlanguage_major}
 
 %package -n %{libkdevplatformlanguage}
@@ -194,7 +206,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformoutputview_major 6
+%define kdevplatformoutputview_major 7
 %define libkdevplatformoutputview %mklibname kdevplatformoutputview %{kdevplatformoutputview_major}
 
 %package -n %{libkdevplatformoutputview}
@@ -209,7 +221,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformproject_major 6
+%define kdevplatformproject_major 7
 %define libkdevplatformproject %mklibname kdevplatformproject %{kdevplatformproject_major}
 
 %package -n %{libkdevplatformproject}
@@ -224,7 +236,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformshell_major 6
+%define kdevplatformshell_major 7
 %define libkdevplatformshell %mklibname kdevplatformshell %{kdevplatformshell_major}
 
 %package -n %{libkdevplatformshell}
@@ -239,7 +251,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformutil_major 6
+%define kdevplatformutil_major 7
 %define libkdevplatformutil %mklibname kdevplatformutil %{kdevplatformutil_major}
 
 %package -n %{libkdevplatformutil}
@@ -254,7 +266,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformvcs_major 6
+%define kdevplatformvcs_major 7
 %define libkdevplatformvcs %mklibname kdevplatformvcs %{kdevplatformvcs_major}
 
 %package -n %{libkdevplatformvcs}
@@ -269,7 +281,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define sublime_major 6
+%define sublime_major 7
 %define libsublime %mklibname sublime %{sublime_major}
 
 %package -n %{libsublime}
@@ -284,7 +296,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdebugger_major 6
+%define kdevplatformdebugger_major 7
 %define libkdevplatformdebugger %mklibname kdevplatformdebugger %{kdevplatformdebugger_major}
 
 %package -n %{libkdevplatformdebugger}
@@ -299,7 +311,7 @@ KDE 4 library.
 
 #-----------------------------------------------------------------------------
 
-%define kdevplatformdocumentation_major 6
+%define kdevplatformdocumentation_major 7
 %define libkdevplatformdocumentation %mklibname kdevplatformdocumentation %{kdevplatformdocumentation_major}
 
 %package -n %{libkdevplatformdocumentation}
@@ -311,6 +323,22 @@ KDE 4 library.
 
 %files -n %{libkdevplatformdocumentation}
 %{_kde_libdir}/libkdevplatformdocumentation.so.%{kdevplatformdocumentation_major}*
+
+
+#-----------------------------------------------------------------------------
+
+%define kdevplatformjsontests_major 7
+%define libkdevplatformjsontests %mklibname kdevplatformjsontests %kdevplatformjsontests_major
+
+%package -n %libkdevplatformjsontests
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkdevplatformjsontests
+KDE 4 library.
+
+%files -n %libkdevplatformjsontests
+%_kde_libdir/libkdevplatformjsontests.so.%{kdevplatformjsontests_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -331,6 +359,7 @@ Requires:	%{libkdevplatformvcs} = %{EVRD}
 Requires:	%{libsublime} = %{EVRD}
 Requires:	%{libkdevplatformdebugger} = %{EVRD}
 Requires:	%{libkdevplatformdocumentation} = %{EVRD}
+Requires:	%{libkdevplatformjsontests} = %{EVRD}
 
 %description -n %{libname}-devel
 Development files for kdevplatform.
@@ -338,6 +367,7 @@ Development files for kdevplatform.
 %files -n %{libname}-devel
 %{_kde_libdir}/cmake/kdevplatform/*.cmake
 %{_kde_includedir}/kdevplatform
+%{_kde_libdir}/libkdevplatformjsontests.so
 %{_kde_libdir}/libkdevplatformtests.so
 %{_kde_libdir}/libkdevplatforminterfaces.so
 %{_kde_libdir}/libkdevplatformlanguage.so
