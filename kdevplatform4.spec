@@ -29,7 +29,6 @@ Source0:	http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/%{kdevelop_ver}/src/kd
 BuildRequires:	flex
 BuildRequires:	graphviz
 BuildRequires:	grantlee-devel
-BuildRequires:	rapidsvn
 BuildRequires:	boost-devel
 BuildRequires:	db-devel
 BuildRequires:	kdelibs4-devel
