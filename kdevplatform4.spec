@@ -21,7 +21,7 @@ Summary:	Integrated Development Environment for C++/C
 Name:		kdevplatform4
 Epoch:		4
 Version:	1.7.1
-Release:	1
+Release:	0.1
 Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
