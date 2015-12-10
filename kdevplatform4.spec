@@ -20,15 +20,15 @@
 Summary:	Integrated Development Environment for C++/C
 Name:		kdevplatform4
 Epoch:		4
-Version:	1.7.1
-Release:	3
+Version:	1.7.2
+Release:	1
 Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
 Source0:	http://fr2.rpmfind.net/linux/KDE/stable/kdevelop/%{kdevelop_ver}/src/kdevplatform-%{version}.tar.xz
 BuildRequires:	flex
 BuildRequires:	graphviz
-BuildRequires:	grantlee-devel
+BuildRequires:	grantlee-qt4-devel
 BuildRequires:	boost-devel
 BuildRequires:	db-devel
 BuildRequires:	kdelibs4-devel
@@ -159,7 +159,7 @@ BuildRequires:	doxygen
 %{_kde_libdir}/kde4/kdevtestview.so
 %{_kde_libdir}/kde4/kcm_kdevprojectfilter.so
 %{_kde_libdir}/kde4/kdevprojectfilter.so
-%{_kde_libdir}/kde4/plugins/grantlee/0.3/kdev_filters.so
+%{_kde_libdir}/kde4/plugins/grantlee/0.5/kdev_filters.so
 %{_kde_libdir}/kde4/imports/org/kde/kdevplatform/libkdevelopdashboarddeclarativeplugin.so
 %{_kde_libdir}/kde4/imports/org/kde/kdevplatform/qmldir
 %{_kde_libdir}/kde4/kdevbazaar.so
