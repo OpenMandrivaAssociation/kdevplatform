@@ -1,6 +1,2 @@
-removed_sources:
-  kdevplatform-1.4.1.tar.bz2: 48f2b40256e96aa015fa40978d5a9a93056fba75
-  kdevplatform-1.6.0.tar.xz: 8ed8ccb63b64a3675716f1ad14b4a73fcbf4133d
-  kdevplatform-1.7.1.tar.xz: dbb0524ec455fe88e1aa68f03b42c845c3a87154
 sources:
-  kdevplatform-1.7.2.tar.xz: eed01990b91e81bffeb24104da604ee7b8f45cad
+  kdevplatform-5.0.3.tar.xz: 9c8900deb39d2627f6d861e238935ad543de045b
