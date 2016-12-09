@@ -26,6 +26,7 @@ Group:		Development/C++
 License:	GPLv2
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/stable/kdevelop/%{version}/src/kdevplatform-%{version}.tar.xz
+Patch1:		kdevplatform-5.0.3-bsdtar.patch
 BuildRequires:	flex
 BuildRequires:	graphviz
 BuildRequires:	boost-devel
@@ -319,11 +320,10 @@ Development files for kdevplatform.
 
 %prep
 %setup -qn kdevplatform-%{version}
+%apply_patches
 
 %build
-ln -s `which gtar` tar
-export PATH=$PWD:$PATH
-%cmake_kde5
+%cmake_kde5 -DBSDTAR=1
 %ninja
 
 %if %{compile_apidox}
