@@ -74,6 +74,8 @@ BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	doxygen
 %endif
 
+Obsoletes:	kdevplatform4
+
 %description
 %{name} module needed by Kdevelop or Quanta
 
