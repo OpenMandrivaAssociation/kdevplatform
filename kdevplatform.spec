@@ -322,7 +322,7 @@ Development files for kdevplatform.
 
 %prep
 %setup -qn kdevplatform-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake_kde5 -DBSDTAR=1
